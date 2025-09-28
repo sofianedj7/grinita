@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags - Optimized for High Ranking -->
+    <title>Grinita | Professional Digital Products, Blog & Creative Assets</title>
+    <meta name="description" content="Level up your creative projects with Grinita. Shop our curated collection of premium digital assets, including eBooks, design templates, and unique graphics inspired by fantasy themes.">
+    <meta name="keywords" content="digital products, grinita, creative assets, fantasy design, buy templates, buy ebooks, digital art store, creative blog, design faq">
+    <meta name="author" content="Grinita">
+    <link rel="canonical" href="https://www.grinita.com"> <!-- Replace with your actual domain -->
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/grinita store stickers and coloring book and t shirt.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #D73F37; /* Vibrant Red from mushroom */
+            --secondary: #F7D54A; /* Yellow from spots */
+            --dark: #212121; /* Deep Black from character */
+            --light: #FDFDFD;
+            --text: #333333;
+            --text-light: #6C757D;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        body.rtl { font-family: 'Cairo', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; margin-bottom: 1rem; color: var(--dark); }
+        body.rtl h1, body.rtl h2, body.rtl h3 { font-family: 'Cairo', sans-serif; font-weight: 700; }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.2; }
+        h2 { font-size: clamp(2rem, 4vw, 2.8rem); position: relative; display: inline-block; margin-bottom: 2rem; }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        p { margin-bottom: 1.5rem; color: var(--text-light); max-width: 600px; margin-left: auto; margin-right: auto; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        .btn { display: inline-block; padding: 14px 35px; background: var(--primary); color: white; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: var(--transition); text-decoration: none; font-size: 1rem; box-shadow: 0 5px 20px rgba(215, 63, 55, 0.3); }
+        .btn:hover { background: #C33029; transform: translateY(-4px); box-shadow: 0 8px 25px rgba(215, 63, 55, 0.4); }
+        
+        section { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+
+        header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); }
+        header.scrolled { box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; position: relative; }
+        .logo-centered { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+        .logo-image { height: 45px; border-radius: 50%; }
+        .header-nav { flex: 1; }
+        .header-nav.left nav { display: flex; justify-content: flex-start; }
+        .header-nav.right nav { display: flex; justify-content: flex-end; }
+        nav ul { display: flex; list-style: none; align-items: center; }
+        nav ul li { margin: 0 20px; }
+        nav ul li a { text-decoration: none; color: var(--text); font-weight: 500; transition: var(--transition); position: relative; padding-bottom: 5px; }
+        nav ul li a:hover { color: var(--primary); }
+        nav ul li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: var(--transition); }
+        nav ul li a:hover::after { width: 100%; }
+        .lang-toggle { background: transparent; border: 1px solid #ddd; border-radius: 20px; padding: 6px 16px; cursor: pointer; font-weight: 500; }
+        .mobile-menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark); z-index: 10; }
+        .mobile-nav { display: none; }
+
+        .hero { padding: 200px 0 120px; text-align: center; background-color: #FFF9F8; position: relative; overflow: hidden; }
+        .hero-content { position: relative; z-index: 2; }
+        .hero h1 { color: var(--dark); }
+        .hero p { color: var(--text-light); font-size: 1.2rem; margin-bottom: 2.5rem; }
+        .hero-logo-large { width: 140px; height: 140px; margin: 0 auto 2rem; animation: float 6s ease-in-out infinite; border-radius: 50%; box-shadow: var(--shadow); }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+
+        .products-ticker { overflow: hidden; padding: 50px 0; background: var(--light); border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
+        .products-ticker:hover .ticker-container { animation-play-state: paused; }
+        .ticker-container { display: flex; width: max-content; animation: ticker-scroll 40s linear infinite; }
+        @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); flex-shrink: 0; border: 1px solid #eee; display: flex; flex-direction: column; }
+        .products-ticker .product-card { width: 320px; margin: 0 20px; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+        .product-img img { width: 100%; height: 220px; object-fit: cover; }
+        .product-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-content h3 { margin-bottom: 10px; font-size: 1.4rem; color: var(--dark); }
+        .product-content p { margin-bottom: 1rem; font-size: 0.95rem; flex-grow: 1; }
+        .product-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .product-price { font-size: 1.6rem; font-weight: 700; color: var(--primary); }
+        .product-rating .fas, .product-rating .fa-star-half-alt { color: var(--secondary); }
+        body.rtl .product-rating { direction: ltr; } /* Keep stars LTR */
+
+        .product-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 25px; border: 1px solid #ddd; background: white; border-radius: 30px; font-weight: 600; cursor: pointer; transition: var(--transition); }
+        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .tab-content { display: none; }
+        .tab-content.active { display: grid; }
+
+        #videos { background-color: #FFF9F8; }
+        .videos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .video-card { background: white; border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; transition: var(--transition); }
+        .video-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .video-embed-container { position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; overflow: hidden; }
+        .video-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-content { padding: 25px; }
+        .video-content h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .video-content p { font-size: 0.95rem; margin-bottom: 0; }
+
+        #gallery-ticker { padding: 80px 0; background: white; overflow: hidden;}
+        .gallery-ticker-container { display: flex; width: max-content; animation: gallery-scroll 60s linear infinite; }
+        .gallery-ticker-container:hover { animation-play-state: paused; }
+        @keyframes gallery-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .gallery-img { height: 200px; margin: 0 15px; border-radius: 15px; box-shadow: var(--shadow); transition: var(--transition); }
+        .gallery-img:hover { transform: scale(1.05); }
+        
+        #stores { background-color: #F8F8F8; }
+        .stores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .laptop-container { position: relative; padding-bottom: 1rem; transition: var(--transition); }
+        .laptop-container:hover { transform: translateY(-10px); }
+        .laptop-screen {
+            background: #fff;
+            border: 12px solid #2C3333;
+            border-bottom-width: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+        .laptop-base { width: 60%; height: 12px; background: #DCDCDC; margin: -2px auto 0 auto; border-radius: 0 0 8px 8px; position: relative; z-index: 1; border: 1px solid #B0B0B0; }
+        .store-product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        .store-content-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .store-awning { height: 3rem; margin-bottom: 1.5rem; background-image: repeating-linear-gradient(-45deg, #FF6B6B, #FF6B6B 15px, #ffffff 15px, #ffffff 30px); border: 2px solid var(--primary); border-top: none; border-radius: 0 0 10px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .store-details {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .store-details .store-logo { height: 48px; margin-bottom: 1rem; object-fit: contain; }
+        .store-details h3 { font-size: 1.5rem; }
+        .store-details .btn { margin-top: 1rem; background-color: #FF6B6B; box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3); }
+        .store-details .btn:hover { background-color: #E05252; box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4); }
+
+        #blog { background: white; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .blog-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid #eee; }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .blog-card img { width: 100%; height: 200px; object-fit: cover; }
+        .blog-content { padding: 25px; }
+        .blog-category { color: var(--primary); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .blog-title { font-size: 1.4rem; color: var(--dark); margin-bottom: 0.5rem; line-height: 1.4; }
+        .blog-excerpt { font-size: 0.95rem; margin-bottom: 1rem; }
+        .read-more { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .read-more:hover { text-decoration: underline; }
+
+        #faq { background-color: #F8F8F8; }
+        .faq-item { background: white; border-radius: 15px; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .faq-question { padding: 20px 25px; font-weight: 600; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question i { transition: transform 0.3s ease; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+        .faq-answer p { padding: 0 25px 20px; margin: 0; max-width: none; }
+
+        #about { background: white; }
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-image img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); }
+        .about-text h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+        #contact { background-color: #F8F8F8; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: flex-start; }
+        .contact-info-item { display: flex; align-items: flex-start; margin-bottom: 2rem; }
+        .contact-info-item i { font-size: 1.5rem; color: var(--primary); margin-right: 1.5rem; margin-top: 5px; }
+        .contact-form { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; transition: var(--transition); }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(215, 63, 55, 0.1); }
+        
+        footer { background: var(--dark); color: white; padding: 60px 0 30px; }
+        .footer-container { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer-logo-link { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1.5rem; }
+        .footer-logo-image { height: 40px; margin-right: 12px; border-radius: 50%; }
+        .footer-logo-text { color: white; font-size: 1.8rem; font-family: 'Playfair Display', serif; }
+        .social-links { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .social-links a { color: white; font-size: 1.5rem; transition: var(--transition); }
+        .social-links a:hover { color: var(--secondary); transform: translateY(-3px); }
+        .copyright { width: 100%; text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; }
+
+        @media (max-width: 992px) {
+            nav ul li {
+                margin: 0 12px;
+            }
+            .about-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                margin-top: 2rem;
+            }
+            .videos-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .mobile-menu-toggle { display: block; position: absolute; right: 20px; }
+            .logo-centered { position: static; transform: none; }
+            .header-container { justify-content: space-between; }
+            .header-nav.left, .header-nav.right { display:none; }
+            .mobile-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+            .mobile-nav.active { display: flex; }
+            .mobile-nav ul { flex-direction: column; }
+            .mobile-nav ul li { margin: 15px 0; text-align: center; }
+        }
+        
+        body.rtl { direction: rtl; text-align: right; }
+        body.rtl h2::after { left: auto; right: 50%; transform: translateX(50%); }
+        body.rtl nav ul li { margin-left: 0; margin-right: 20px; }
+        body.rtl .contact-info-item i, body.rtl .footer-logo-image { margin-left: 1.5rem; margin-right: 0; }
+        body.rtl .mobile-menu-toggle { right: auto; left: 20px; }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+             <div class="header-nav left desktop-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#home" data-key="navHome">Home</a></li>
+                        <li><a href="#featured-products" data-key="navFeatured">Featured</a></li>
+                        <li><a href="#all-products" data-key="navAllProducts">All Products</a></li>
+                        <li><a href="#videos" data-key="navVideos">Videos</a></li>
+                         <li><a href="#blog" data-key="navBlog">Blog</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <a href="#" class="logo-centered">
+                <img src="images/grinita store stickers and coloring book and t shirt.png" alt="Grinita Logo" class="logo-image">
+            </a>
+            <div class="header-nav right desktop-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#faq" data-key="navFaq">FAQ</a></li>
+                        <li><a href="#stores" data-key="navStores">Stores</a></li>
+                        <li><a href="#about" data-key="navAbout">About</a></li>
+                        <li><a href="#contact" data-key="navContact">Contact</a></li>
+                        <li><button class="lang-toggle" id="langToggle">AR</button></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+             <ul>
+                <li><a href="#home" data-key="navHome">Home</a></li>
+                <li><a href="#featured-products" data-key="navFeatured">Featured</a></li>
+                <li><a href="#all-products" data-key="navAllProducts">All Products</a></li>
+                <li><a href="#videos" data-key="navVideos">Videos</a></li>
+                <li><a href="#blog" data-key="navBlog">Blog</a></li>
+                <li><a href="#faq" data-key="navFaq">FAQ</a></li>
+                <li><a href="#stores" data-key="navStores">Stores</a></li>
+                <li><a href="#about" data-key="navAbout">About</a></li>
+                <li><a href="#contact" data-key="navContact">Contact</a></li>
+                <li><button class="lang-toggle" id="langToggleMobile">AR</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <img src="images/grinita store stickers and coloring book and t shirt.png" alt="Grinita's Creative Mascot" class="hero-logo-large">
+                <h1 data-key="heroTitle">Where Creativity Thrives</h1>
+                <p data-key="heroSubtitle">Premium digital assets for visionary designers, artists, and creators. Instantly download tools to bring your ideas to life.</p>
+                <a href="#all-products" class="btn" data-key="heroButton">Explore Our Products</a>
+            </div>
+        </section>
+
+        <section id="featured-products" class="products-ticker">
+            <div class="ticker-container">
+                <!-- Set 1 -->
+                <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80" alt="Creative Writing eBook"></div><div class="product-content"><h3 data-key="product1Title">The Storyteller's Guide</h3><p data-key="product1Desc">An essential eBook for mastering the art of creative writing.</p><div class="product-meta"><div class="product-price" data-key="product1Price">$19.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=400&q=80" alt="Social Media Templates"></div><div class="product-content"><h3 data-key="product2Title">Social Media Kit</h3><p data-key="product2Desc">50+ vibrant templates for Instagram, Pinterest, and more.</p><div class="product-meta"><div class="product-price" data-key="product2Price">$24.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1506729623306-b4e2ce45b632?auto=format&fit=crop&w=400&q=80" alt="Procreate Art Brushes"></div><div class="product-content"><h3 data-key="product3Title">Procreate Magic Brushes</h3><p data-key="product3Desc">A professional pack of 30+ brushes for digital illustration.</p><div class="product-meta"><div class="product-price" data-key="product3Price">$14.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Freelance Success Guide"></div><div class="product-content"><h3 data-key="product4Title">Freelancer's Playbook</h3><p data-key="product4Desc">Your ultimate guide to building a successful freelance career.</p><div class="product-meta"><div class="product-price" data-key="product4Price">$29.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                <!-- Set 2 (Duplicate for seamless loop) -->
+                <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80" alt="Creative Writing eBook"></div><div class="product-content"><h3 data-key="product1Title">The Storyteller's Guide</h3><p data-key="product1Desc">An essential eBook for mastering the art of creative writing.</p><div class="product-meta"><div class="product-price" data-key="product1Price">$19.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=400&q=80" alt="Social Media Templates"></div><div class="product-content"><h3 data-key="product2Title">Social Media Kit</h3><p data-key="product2Desc">50+ vibrant templates for Instagram, Pinterest, and more.</p><div class="product-meta"><div class="product-price" data-key="product2Price">$24.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1506729623306-b4e2ce45b632?auto=format&fit=crop&w=400&q=80" alt="Procreate Art Brushes"></div><div class="product-content"><h3 data-key="product3Title">Procreate Magic Brushes</h3><p data-key="product3Desc">A professional pack of 30+ brushes for digital illustration.</p><div class="product-meta"><div class="product-price" data-key="product3Price">$14.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Freelance Success Guide"></div><div class="product-content"><h3 data-key="product4Title">Freelancer's Playbook</h3><p data-key="product4Desc">Your ultimate guide to building a successful freelance career.</p><div class="product-meta"><div class="product-price" data-key="product4Price">$29.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+            </div>
+        </section>
+
+        <section id="all-products">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-key="allProductsTitle">All Our Products</h2>
+                    <p data-key="allProductsSubtitle">Browse our complete collection of creative assets.</p>
+                </div>
+                <div class="product-tabs">
+                    <button class="tab-btn active" data-tab="stickers" data-key="stickersTab">Stickers</button>
+                    <button class="tab-btn" data-tab="coloring-books" data-key="coloringBooksTab">Coloring Books</button>
+                    <button class="tab-btn" data-tab="ebooks" data-key="ebooksTab">eBooks</button>
+                </div>
+                <div id="stickers" class="tab-content active products-grid">
+                    <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1620140417694-2790175a0578?auto=format&fit=crop&w=400&q=80" alt="Sticker Pack 1"></div><div class="product-content"><h3>Enchanted Forest Stickers</h3><p>A pack of 20 magical, waterproof vinyl stickers.</p><div class="product-meta"><div class="product-price">$9.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                    <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1616431542333-b7e1964a78a2?auto=format&fit=crop&w=400&q=80" alt="Sticker Pack 2"></div><div class="product-content"><h3>Celestial Witchy Stickers</h3><p>A set of 15 holographic stickers with celestial designs.</p><div class="product-meta"><div class="product-price">$12.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                </div>
+                <div id="coloring-books" class="tab-content products-grid">
+                    <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1596731422338-7f287383187a?auto=format&fit=crop&w=400&q=80" alt="Coloring Book 1"></div><div class="product-content"><h3>Mystical Creatures</h3><p>A 50-page coloring book featuring dragons, unicorns, and more.</p><div class="product-meta"><div class="product-price">$15.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                </div>
+                <div id="ebooks" class="tab-content products-grid">
+                     <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80" alt="eBook 1"></div><div class="product-content"><h3 data-key="product1Title">The Storyteller's Guide</h3><p data-key="product1Desc">An essential eBook for mastering the art of creative writing.</p><div class="product-meta"><div class="product-price" data-key="product1Price">$19.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                     <div class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="eBook 2"></div><div class="product-content"><h3 data-key="product4Title">Freelancer's Playbook</h3><p data-key="product4Desc">Your ultimate guide to building a successful freelance career.</p><div class="product-meta"><div class="product-price" data-key="product4Price">$29.99</div><div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div></div><a href="#" class="btn" data-key="buyNow">Buy Now</a></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="videos">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-key="videosTitle">Watch & Learn</h2>
+                    <p data-key="videosSubtitle">Check out our tutorials and creative process videos.</p>
+                </div>
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/60_fQ4Tz_T4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-content">
+                            <h3 data-key="video1Title">Getting Started with Digital Art</h3>
+                            <p data-key="video1Desc">A beginner's guide to the tools and techniques for creating stunning digital illustrations.</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-embed-container">
+                            <iframe src="https://www.youtube.com/embed/s3p20o-Wea4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-content">
+                            <h3 data-key="video2Title">Procreate Animation Tips</h3>
+                            <p data-key="video2Desc">Learn how to bring your characters to life with these simple animation tricks in Procreate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="gallery-ticker">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-key="galleryTitle">Our Creative Gallery</h2>
+                    <p data-key="gallerySubtitle">A glimpse into our world of fantasy and design.</p>
+                </div>
+            </div>
+            <div class="gallery-ticker-container">
+                <!-- Images Set 1 -->
+                <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=400&q=80" alt="Creative Art 1" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?auto=format&fit=crop&w=400&q=80" alt="Creative Art 2" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=400&q=80" alt="Creative Art 3" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=400&q=80" alt="Creative Art 4" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=400&q=80" alt="Creative Art 5" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1506809583395-6739d1b82f4e?auto=format&fit=crop&w=400&q=80" alt="Creative Art 6" class="gallery-img">
+                <!-- Images Set 2 (Duplicate for seamless loop) -->
+                <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=400&q=80" alt="Creative Art 1" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?auto=format&fit=crop&w=400&q=80" alt="Creative Art 2" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=400&q=80" alt="Creative Art 3" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=400&q=80" alt="Creative Art 4" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=400&q=80" alt="Creative Art 5" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1506809583395-6739d1b82f4e?auto=format&fit=crop&w=400&q=80" alt="Creative Art 6" class="gallery-img">
+            </div>
+        </section>
+
+        <section id="stores">
+            <div class="container">
+                <div class="section-title"><h2 data-key="storesTitle">Our Marketplaces</h2><p data-key="storesSubtitle">Find our exclusive collections on your favorite platforms.</p></div>
+                <div class="stores-grid">
+                    <div class="laptop-container">
+                        <div class="laptop-screen">
+                            <img src="https://images.unsplash.com/photo-1620140417694-2790175a0578?auto=format&fit=crop&w=400&q=80" alt="Stickers Product" class="store-product-image">
+                            <div class="store-content-wrapper">
+                                <div class="store-awning"></div>
+                                <div class="store-details">
+                                    <img src="https://placehold.co/120x48/F1641E/FFFFFF?text=ETSY" alt="Etsy Logo" class="store-logo">
+                                    <h3 data-key="etsyTitle">Etsy Emporium</h3>
+                                    <p data-key="etsyDesc">Unique printables & digital goods.</p>
+                                    <a href="#" class="btn" data-key="visitShop">Visit Shop</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="laptop-container">
+                        <div class="laptop-screen">
+                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=400&q=80" alt="Social Media Templates Product" class="store-product-image">
+                            <div class="store-content-wrapper">
+                                <div class="store-awning"></div>
+                                <div class="store-details">
+                                    <img src="https://placehold.co/120x48/36A982/FFFFFF?text=Creative+Market" alt="Creative Market Logo" class="store-logo">
+                                    <h3 data-key="cmTitle">Creative Market</h3>
+                                    <p data-key="cmDesc">Professional design assets.</p>
+                                    <a href="#" class="btn" data-key="visitShop">Visit Shop</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="laptop-container">
+                        <div class="laptop-screen">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80" alt="eBook Product" class="store-product-image">
+                            <div class="store-content-wrapper">
+                                <div class="store-awning"></div>
+                                <div class="store-details">
+                                    <img src="https://placehold.co/120x48/FF90E8/FFFFFF?text=Gumroad" alt="Gumroad Logo" class="store-logo">
+                                    <h3 data-key="gumroadTitle">Gumroad Goods</h3>
+                                    <p data-key="gumroadDesc">Premium guides & direct downloads.</p>
+                                    <a href="#" class="btn" data-key="visitShop">Visit Shop</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-key="blogTitle">From Our Blog</h2>
+                    <p data-key="blogSubtitle">Get the latest tips, tricks, and inspiration for your creative journey.</p>
+                </div>
+                <div class="blog-grid">
+                    <div class="blog-card"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=400&q=80" alt="Blog post about design trends"><div class="blog-content"><div class="blog-category" data-key="blog1Category">DESIGN TIPS</div><h3 class="blog-title" data-key="blog1Title">5 Design Trends to Watch in 2025</h3><p class="blog-excerpt" data-key="blog1Excerpt">Discover the latest trends shaping the creative world and how you can incorporate them into your work.</p><a href="#" class="read-more" data-key="readMore">Read More...</a></div></div>
+                     <div class="blog-card"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=400&q=80" alt="Blog post about freelancing"><div class="blog-content"><div class="blog-category" data-key="blog2Category">FREELANCING</div><h3 class="blog-title" data-key="blog2Title">How to Price Your Creative Work</h3><p class="blog-excerpt" data-key="blog2Excerpt">A comprehensive guide to help you value your skills and price your services confidently.</p><a href="#" class="read-more" data-key="readMore">Read More...</a></div></div>
+                     <div class="blog-card"><img src="https://images.unsplash.com/photo-1512295767273-b684ac6179ce?auto=format&fit=crop&w=400&q=80" alt="Blog post about digital tools"><div class="blog-content"><div class="blog-category" data-key="blog3Category">RESOURCES</div><h3 class="blog-title" data-key="blog3Title">Top 10 Digital Tools for Artists</h3><p class="blog-excerpt" data-key="blog3Excerpt">We've curated a list of essential apps and software that every digital artist should know about.</p><a href="#" class="read-more" data-key="readMore">Read More...</a></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="container">
+                <div class="section-title"><h2 data-key="faqTitle">Frequently Asked Questions</h2><p data-key="faqSubtitle">Have questions? We've got answers. If you can't find what you're looking for, feel free to contact us.</p></div>
+                <div class="faq-container">
+                    <div class="faq-item"><div class="faq-question"><span data-key="faq1q">What file formats are included?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p data-key="faq1a">Each product comes with a variety of file formats to ensure compatibility with most design software. Typically, you'll find PNG, JPG, PSD, and AI files. Please check the individual product description for specific details.</p></div></div>
+                    <div class="faq-item"><div class="faq-question"><span data-key="faq2q">How do I receive my files after purchase?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p data-key="faq2a">Once your purchase is complete, you will receive an email with a secure download link. You can download your files instantly. The link will be active for 30 days.</p></div></div>
+                    <div class="faq-item"><div class="faq-question"><span data-key="faq3q">What is your refund policy?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p data-key="faq3a">Due to the digital nature of our products, all sales are final and we do not offer refunds. However, if you encounter any issues with your files, please contact our support team, and we'll be happy to assist you.</p></div></div>
+                     <div class="faq-item"><div class="faq-question"><span data-key="faq4q">Can I use these assets for commercial projects?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p data-key="faq4a">Yes! All our products come with a standard commercial license, which allows you to use them in an unlimited number of personal and commercial projects. However, you are not allowed to resell or redistribute the original files.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="section-title"><h2 data-key="aboutTitle">About Grinita</h2></div>
+                <div class="about-container">
+                    <div class="about-image"><img src="https://images.unsplash.com/photo-1516641396769-0f0d5134c23c?auto=format&fit=crop&w=500&q=80" alt="A creative workspace representing Grinita's spirit"></div>
+                    <div class="about-text">
+                        <h3 data-key="aboutMission">Our Mission</h3>
+                        <p data-key="aboutMissionText">To empower creators everywhere by providing high-quality, inspiring, and accessible digital tools. We believe that with the right resources, anyone can bring their creative visions to life.</p>
+                        <h3 data-key="aboutStory">Our Story</h3>
+                        <p data-key="aboutStoryText">Grinita was born from a simple idea: creativity should be joyful and uninhibited. Founded by a group of artists and designers, we noticed a need for unique, fantasy-inspired assets that weren't just functional, but also fun.</p>
+                        <a href="#contact" class="btn" data-key="getInTouch">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-title"><h2 data-key="contactTitle">Contact Us</h2><p data-key="contactSubtitle">Have a question or a project in mind? We'd love to hear from you.</p></div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-info-item"><i class="fas fa-envelope"></i><div><h3 data-key="contactEmail">Email Us</h3><p>hello@grinita.com</p></div></div>
+                        <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><div><h3 data-key="contactStudio">Our Studio</h3><p>123 Creative Lane, Fantasy City</p></div></div>
+                        <div class="contact-info-item"><i class="fas fa-hashtag"></i><div><h3 data-key="contactSocial">Social Media</h3><p>@GrinitaCreative</p></div></div>
+                    </div>
+                    <!-- IMPORTANT: Replace "your-email@example.com" below with the email address where you want to receive messages. -->
+                    <form class="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                        <div class="form-group"><input type="text" name="Name" data-key="formName" placeholder="Your Name" required></div>
+                        <div class="form-group"><input type="email" name="Email" data-key="formEmail" placeholder="Your Email" required></div>
+                        <div class="form-group"><textarea name="Message" rows="6" data-key="formMessage" placeholder="Your Message" required></textarea></div>
+                        <button type="submit" class="btn" data-key="sendMessage">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <a href="#" class="footer-logo-link">
+                <img src="images/grinita store stickers and coloring book and t shirt.png" alt="Grinita Logo" class="footer-logo-image">
+                <span class="footer-logo-text">Grinita</span>
+            </a>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="copyright"><p data-key="footerText">&copy; 2025 Grinita. All Rights Reserved. Empowering Your Creative Journey.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const translations = {
+                en: {
+                    navHome: "Home", navFeatured: "Featured", navAllProducts: "All Products", navVideos: "Videos", navBlog: "Blog", navFaq: "FAQ", navStores: "Stores", navAbout: "About", navContact: "Contact",
+                    heroTitle: "Where Creativity Thrives", heroSubtitle: "Premium digital assets for visionary designers, artists, and creators. Instantly download tools to bring your ideas to life.", heroButton: "Explore Our Products",
+                    buyNow: "Buy Now",
+                    product1Title: "The Storyteller's Guide", product1Desc: "An essential eBook for mastering the art of creative writing.", product1Price: "$19.99",
+                    product2Title: "Social Media Kit", product2Desc: "50+ vibrant templates for Instagram, Pinterest, and more.", product2Price: "$24.99",
+                    product3Title: "Procreate Magic Brushes", product3Desc: "A professional pack of 30+ brushes for digital illustration.", product3Price: "$14.99",
+                    product4Title: "Freelancer's Playbook", product4Desc: "Your ultimate guide to building a successful freelance career.", product4Price: "$29.99",
+                    allProductsTitle: "All Our Products", allProductsSubtitle: "Browse our complete collection of creative assets.",
+                    stickersTab: "Stickers", coloringBooksTab: "Coloring Books", ebooksTab: "eBooks",
+                    videosTitle: "Watch & Learn", videosSubtitle: "Check out our tutorials and creative process videos.",
+                    video1Title: "Getting Started with Digital Art", video1Desc: "A beginner's guide to the tools and techniques for creating stunning digital illustrations.",
+                    video2Title: "Procreate Animation Tips", video2Desc: "Learn how to bring your characters to life with these simple animation tricks in Procreate.",
+                    blogTitle: "From Our Blog", blogSubtitle: "Get the latest tips, tricks, and inspiration for your creative journey.",
+                    blog1Category: "DESIGN TIPS", blog1Title: "5 Design Trends to Watch in 2025", blog1Excerpt: "Discover the latest trends shaping the creative world and how you can incorporate them into your work.", readMore: "Read More...",
+                    blog2Category: "FREELANCING", blog2Title: "How to Price Your Creative Work", blog2Excerpt: "A comprehensive guide to help you value your skills and price your services confidently.",
+                    blog3Category: "RESOURCES", blog3Title: "Top 10 Digital Tools for Artists", blog3Excerpt: "We've curated a list of essential apps and software that every digital artist should know about.",
+                    faqTitle: "Frequently Asked Questions", faqSubtitle: "Have questions? We've got answers. If you can't find what you're looking for, feel free to contact us.",
+                    faq1q: "What file formats are included?", faq1a: "Each product comes with a variety of file formats to ensure compatibility with most design software. Typically, you'll find PNG, JPG, PSD, and AI files. Please check the individual product description for specific details.",
+                    faq2q: "How do I receive my files after purchase?", faq2a: "Once your purchase is complete, you will receive an email with a secure download link. You can download your files instantly. The link will be active for 30 days.",
+                    faq3q: "What is your refund policy?", faq3a: "Due to the digital nature of our products, all sales are final and we do not offer refunds. However, if you encounter any issues with your files, please contact our support team, and we'll be happy to assist you.",
+                    faq4q: "Can I use these assets for commercial projects?", faq4a: "Yes! All our products come with a standard commercial license, which allows you to use them in an unlimited number of personal and commercial projects. However, you are not allowed to resell or redistribute the original files.",
+                    galleryTitle: "Our Creative Gallery", gallerySubtitle: "A glimpse into our world of fantasy and design.",
+                    storesTitle: "Our Marketplaces", storesSubtitle: "Find our exclusive collections on your favorite platforms.",
+                    etsyTitle: "Etsy Emporium", etsyDesc: "Unique printables & digital goods.", visitShop: "Visit Shop",
+                    cmTitle: "Creative Market", cmDesc: "Professional design assets.",
+                    gumroadTitle: "Gumroad Goods", gumroadDesc: "Premium guides & direct downloads.",
+                    aboutTitle: "About Grinita", aboutMission: "Our Mission",
+                    aboutMissionText: "To empower creators everywhere by providing high-quality, inspiring, and accessible digital tools. We believe that with the right resources, anyone can bring their creative visions to life.",
+                    aboutStory: "Our Story",
+                    aboutStoryText: "Grinita was born from a simple idea: creativity should be joyful and uninhibited. Founded by a group of artists and designers, we noticed a need for unique, fantasy-inspired assets that weren't just functional, but also fun.",
+                    getInTouch: "Get in Touch",
+                    contactTitle: "Contact Us", contactSubtitle: "Have a question or a project in mind? We'd love to hear from you.",
+                    contactEmail: "Email Us", contactStudio: "Our Studio", contactSocial: "Social Media",
+                    formName: "Your Name", formEmail: "Your Email", formMessage: "Your Message", sendMessage: "Send Message",
+                    footerText: "© 2025 Grinita. All Rights Reserved. Empowering Your Creative Journey."
+                },
+                ar: {
+                    navHome: "الرئيسية", navFeatured: "المميزة", navAllProducts: "كل المنتجات", navVideos: "فيديوهات", navBlog: "المدونة", navFaq: "الأسئلة", navStores: "متاجرنا", navAbout: "من نحن", navContact: "تواصل معنا",
+                    heroTitle: "حيث يزدهر الإبداع",
+                    heroSubtitle: "أصول رقمية مميزة للمصممين والفنانين والمبدعين. حمّل الآن أدواتك لتحويل أفكارك إلى حقيقة.",
+                    heroButton: "استكشف منتجاتنا",
+                    buyNow: "شراء الآن",
+                    product1Title: "دليل الحكواتي", product1Desc: "كتاب إلكتروني أساسي لإتقان فن الكتابة الإبداعية.", product1Price: "١٩.٩٩ دولار",
+                    product2Title: "مجموعة التواصل الاجتماعي", product2Desc: "أكثر من 50 قالبًا عصريًا لإنستغرام، بنترست، وغيرها.", product2Price: "٢٤.٩٩ دولار",
+                    product3Title: "فرشاة برو كرييت السحرية", product3Desc: "مجموعة احترافية تضم أكثر من 30 فرشاة للرسم الرقمي.", product3Price: "١٤.٩٩ دولار",
+                    product4Title: "دليل المستقل الناجح", product4Desc: "دليلك الشامل لبناء حياة مهنية ناجحة كمستقل.", product4Price: "٢٩.٩٩ دولار",
+                    allProductsTitle: "جميع منتجاتنا", allProductsSubtitle: "تصفح مجموعتنا الكاملة من الأصول الإبداعية.",
+                    stickersTab: "ملصقات", coloringBooksTab: "كتب تلوين", ebooksTab: "كتب إلكترونية",
+                    videosTitle: "شاهد وتعلم", videosSubtitle: "اطلع على دروسنا التعليمية وفيديوهات عملنا الإبداعي.",
+                    video1Title: "مقدمة في الفن الرقمي", video1Desc: "دليل المبتدئين لأدوات وتقنيات إنشاء الرسوم التوضيحية الرقمية المذهلة.",
+                    video2Title: "نصائح للرسوم المتحركة في Procreate", video2Desc: "تعلم كيفية إضفاء الحيوية على شخصياتك باستخدام حيل الرسوم المتحركة البسيطة هذه في Procreate.",
+                    blogTitle: "من مدونتنا", blogSubtitle: "احصل على أحدث النصائح والحيل والإلهام لرحلتك الإبداعية.",
+                    blog1Category: "نصائح تصميم", blog1Title: "٥ اتجاهات تصميم يجب مراقبتها في ٢٠٢٥", blog1Excerpt: "اكتشف أحدث الاتجاهات التي تشكل العالم الإبداعي وكيف يمكنك دمجها في عملك.", readMore: "اقرأ المزيد...",
+                    blog2Category: "العمل الحر", blog2Title: "كيف تسعر أعمالك الإبداعية", blog2Excerpt: "دليل شامل لمساعدتك على تقييم مهاراتك وتسعير خدماتك بثقة.",
+                    blog3Category: "مصادر", blog3Title: "أفضل ١٠ أدوات رقمية للفنانين", blog3Excerpt: "لقد قمنا بتجميع قائمة بالتطبيقات والبرامج الأساسية التي يجب أن يعرفها كل فنان رقمي.",
+                    faqTitle: "الأسئلة الشائعة", faqSubtitle: "لديك أسئلة؟ لدينا إجابات. إذا لم تجد ما تبحث عنه، فلا تتردد في الاتصال بنا.",
+                    faq1q: "ما هي تنسيقات الملفات المضمنة؟", faq1a: "يأتي كل منتج مع مجموعة متنوعة من تنسيقات الملفات لضمان التوافق مع معظم برامج التصميم. عادةً، ستجد ملفات PNG و JPG و PSD و AI. يرجى مراجعة وصف المنتج الفردي للحصول على تفاصيل محددة.",
+                    faq2q: "كيف أستلم ملفاتي بعد الشراء؟", faq2a: "بمجرد اكتمال عملية الشراء، ستتلقى بريدًا إلكترونيًا يحتوي على رابط تنزيل آمن. يمكنك تنزيل ملفاتك على الفور. سيكون الرابط نشطًا لمدة ٣٠ يومًا.",
+                    faq3q: "ما هي سياسة الاسترداد الخاصة بكم؟", faq3a: "نظرًا للطبيعة الرقمية لمنتجاتنا، فإن جميع المبيعات نهائية ولا نقدم المبالغ المستردة. ومع ذلك، إذا واجهت أي مشاكل مع ملفاتك، فيرجى الاتصال بفريق الدعم لدينا، وسنكون سعداء بمساعدتك.",
+                    faq4q: "هل يمكنني استخدام هذه الأصول للمشاريع التجارية؟", faq4a: "نعم! تأتي جميع منتجاتنا مع ترخيص تجاري قياسي، والذي يسمح لك باستخدامها في عدد غير محدود من المشاريع الشخصية والتجارية. ومع ذلك، لا يُسمح لك بإعادة بيع الملفات الأصلية أو إعادة توزيعها.",
+                    galleryTitle: "معرضنا الإبداعي", gallerySubtitle: "لمحة عن عالمنا من الخيال والتصميم.",
+                    storesTitle: "متاجرنا الإلكترونية", storesSubtitle: "اعثر على مجموعاتنا الحصرية على منصاتك المفضلة.",
+                    etsyTitle: "متجر إتسي", etsyDesc: "تصاميم فريدة قابلة للطباعة وسلع رقمية.", visitShop: "زيارة المتجر",
+                    cmTitle: "كرييتف ماركت", cmDesc: "أصول تصميم احترافية.",
+                    gumroadTitle: "بضائع جومرود", gumroadDesc: "أدلة مميزة وتنزيلات مباشرة.",
+                    aboutTitle: "عن جرينيتا", aboutMission: "مهمتنا",
+                    aboutMissionText: "تمكين المبدعين في كل مكان من خلال توفير أدوات رقمية ملهمة وعالية الجودة. نؤمن أنه بالموارد المناسبة، يمكن لأي شخص تحويل رؤيته الإبداعية إلى حقيقة.",
+                    aboutStory: "قصتنا",
+                    aboutStoryText: "ولدت جرينيتا من فكرة بسيطة: يجب أن يكون الإبداع ممتعًا وبلا قيود. أسسها فنانون ومصممون لاحظوا الحاجة إلى أصول فريدة مستوحاة من الخيال، ليست عملية فحسب، بل ممتعة أيضًا.",
+                    getInTouch: "تواصل معنا",
+                    contactTitle: "تواصل معنا", contactSubtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
+                    contactEmail: "راسلنا عبر البريد", contactStudio: "موقعنا", contactSocial: "التواصل الاجتماعي",
+                    formName: "اسمك", formEmail: "بريدك الإلكتروني", formMessage: "رسالتك", sendMessage: "إرسال الرسالة",
+                    footerText: "© 2025 جرينيتا. جميع الحقوق محفوظة. لتمكين رحلتك الإبداعية."
+                }
+            };
+
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobileNav');
+            const header = document.getElementById('header');
+            const langToggles = [document.getElementById('langToggle'), document.getElementById('langToggleMobile')];
+            let currentLang = 'en';
+
+            function translatePage() {
+                document.querySelectorAll('[data-key]').forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (translations[currentLang] && translations[currentLang][key]) {
+                        if(element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.placeholder = translations[currentLang][key];
+                        } else {
+                            element.textContent = translations[currentLang][key];
+                        }
+                    }
+                });
+            }
+
+            mobileMenuToggle.addEventListener('click', () => mobileNav.classList.toggle('active'));
+            
+            langToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    document.body.classList.toggle('rtl');
+                    if (document.body.classList.contains('rtl')) {
+                        currentLang = 'ar';
+                        document.documentElement.lang = 'ar';
+                        document.documentElement.dir = 'rtl';
+                        langToggles.forEach(t => t.textContent = 'EN');
+                    } else {
+                        currentLang = 'en';
+                        document.documentElement.lang = 'en';
+                        document.documentElement.dir = 'ltr';
+                        langToggles.forEach(t => t.textContent = 'AR');
+                    }
+                    translatePage();
+                });
+            });
+            
+            window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId.length > 1) {
+                        try {
+                            const targetElement = document.querySelector(targetId);
+                            if (targetElement) {
+                                e.preventDefault();
+                                window.scrollTo({ top: targetElement.offsetTop - header.offsetHeight, behavior: 'smooth' });
+                                if (mobileNav.classList.contains('active')) {
+                                    mobileNav.classList.remove('active');
+                                }
+                            }
+                        } catch (error) {
+                            console.error("Could not scroll to element:", error);
+                        }
+                    }
+                });
+            });
+
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => {
+                        i.classList.remove('active');
+                        i.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+            
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === tabId) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
+
