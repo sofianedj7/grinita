@@ -4,7 +4,7 @@
 🔹 هذا الملف يُساعد Google على فهرسة موقعك وصورك تلقائيًا.
 🔹 حدّث تاريخ <lastmod> كل فترة عندما تضيف محتوى جديد.
 -->
-
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
@@ -22,6 +22,23 @@
   <!-- 🔹 عندما تضيف صورًا جديدة في مجلد image، انسخ اسمها وأضفها مثل الأسطر بالأسفل -->
   <url>
     <loc>https://grinita.com/image/</loc>
+    
+     <!-- 🔹 روابط المنتجات (ضع كل منتج أو قسم داخل الموقع هنا إن وجد) -->
+  <url>
+    <loc>https://grinita.com/#products</loc>
+    <lastmod>2025-10-04</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- 🔹 روابط المقالات أو المدونة -->
+  <url>
+    <loc>https://grinita.com/#blog</loc>
+    <lastmod>2025-10-04</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
     
     <!-- 🖼️ صور مميزة -->
     <image:image>
