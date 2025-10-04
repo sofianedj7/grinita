@@ -20,14 +20,9 @@
 
   <!-- 🖼️ قسم الصور (مجلد image في GitHub Pages) -->
   <!-- 🔹 عندما تضيف صورًا جديدة في مجلد image، انسخ اسمها وأضفها مثل الأسطر بالأسفل -->
-
-
   
   <url>
     <loc>https://grinita.com/image/</loc>
-    
-
-
     
     <!-- 🖼️ صور مميزة -->
     <image:image>
@@ -64,8 +59,30 @@
       <image:caption>شرح بسيط للصورة</image:caption>
     </image:image>
     -->
+
+    
+  </url>
+  <!-- 🔹 صور موقعك (أمثلة، عدّل الأسماء حسب ملفاتك الحقيقية في مجلد image) -->
+  <url>
+    
+    <image:image>
+      <image:loc>https://grinita.com/image/cover.jpg</image:loc>
+      <image:title>Grinita Cover Image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://grinita.com/image/stickers1.png</image:loc>
+      <image:title>Inspirational Stickers</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://grinita.com/image/coloringbook1.png</image:loc>
+      <image:title>Digital Coloring Book</image:title>
+    </image:image>
   </url>
 
+  <!-- 💡 ملاحظة: 
+       يمكنك نسخ أي قسم <url> أعلاه وتعديله لإضافة روابط جديدة
+       مثل صفحات المنتجات، المقالات، أو صور إضافية.
+  -->
 
   
 </urlset>
