@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+📄 Smart Sitemap for grinita.com
+🔹 هذا الملف يُساعد Google على فهرسة موقعك وصورك تلقائيًا.
+🔹 حدّث تاريخ <lastmod> كل فترة عندما تضيف محتوى جديد.
+-->
+
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+
+  <!-- 🏠 الصفحة الرئيسية -->
+  <url>
+    <loc>https://grinita.com/</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 🖼️ قسم الصور (مجلد image في GitHub Pages) -->
+  <!-- 🔹 عندما تضيف صورًا جديدة في مجلد image، انسخ اسمها وأضفها مثل الأسطر بالأسفل -->
+  <url>
+    <loc>https://grinita.com/image/</loc>
+    
+    <!-- 🖼️ صور مميزة -->
+    <image:image>
+      <image:loc>https://grinita.com/image/logo.png</image:loc>
+      <image:title>Grinita Logo</image:title>
+      <image:caption>Official logo of Grinita Brand</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://grinita.com/image/cover.jpg</image:loc>
+      <image:title>Coloring Book Cover</image:title>
+      <image:caption>Beautiful Cover for Grinita Digital Coloring Book</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://grinita.com/image/sticker-pack1.png</image:loc>
+      <image:title>Positive Quote Stickers</image:title>
+      <image:caption>Motivational Stickers Collection by Grinita</image:caption>
+    </image:image>
+
+    <!-- 🔸 انسخ الكتلة التالية وأضف اسم الصورة فقط -->
+    <!--
+    <image:image>
+      <image:loc>https://grinita.com/image/اسم-الصورة.png</image:loc>
+      <image:title>اسم الصورة بالعربية أو الإنجليزية</image:title>
+      <image:caption>شرح بسيط للصورة</image:caption>
+    </image:image>
+    -->
+  </url>
+
+</urlset>
