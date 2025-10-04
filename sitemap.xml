@@ -25,9 +25,9 @@
     
     <!-- 🖼️ صور مميزة -->
     <image:image>
-      <image:loc>https://grinita.com/image/logo.png</image:loc>
+      <image:loc>https://grinita.com/image/grinita store stickers and coloring book and t shirt.png</image:loc>
       <image:title>Grinita Logo</image:title>
-      <image:caption>Official logo of Grinita Brand</image:caption>
+      <image:caption>grinita store stickers and coloring book</image:caption>
     </image:image>
 
     <image:image>
@@ -37,13 +37,21 @@
     </image:image>
 
     <image:image>
-      <image:loc>https://grinita.com/image/sticker-pack1.png</image:loc>
-      <image:title>Positive Quote Stickers</image:title>
+      <image:loc>https://grinita.com/image/30-Inspirational-motivational-Digital-stickers-4.png</image:loc>
+      <image:title>30 Inspirational motivational Digital stickers</image:title>
       <image:caption>Motivational Stickers Collection by Grinita</image:caption>
     </image:image>
 
     <!-- 🔸 انسخ الكتلة التالية وأضف اسم الصورة فقط -->
     <!--
+    <image:image>
+      <image:loc>https://grinita.com/image/English-countryside-Coloring-Book,-Download-now-50-Relaxing-Designs-–-PDF-Digital-Edition-Image11-01.jpg
+</image:loc>
+      <image:title>English countryside Coloring Book</image:title>
+      <image:caption>English countryside Coloring Book 50 Relaxing Designs</image:caption>
+    </image:image>
+    -->
+      <!--
     <image:image>
       <image:loc>https://grinita.com/image/اسم-الصورة.png</image:loc>
       <image:title>اسم الصورة بالعربية أو الإنجليزية</image:title>
