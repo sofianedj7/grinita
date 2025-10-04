@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 📄 Smart Sitemap for grinita.com
 🔹 هذا الملف يُساعد Google على فهرسة موقعك وصورك تلقائيًا.
@@ -64,25 +63,7 @@
       <image:caption>شرح بسيط للصورة</image:caption>
     </image:image>
     -->
-
-         <!-- 🔹 روابط المنتجات (ضع كل منتج أو قسم داخل الموقع هنا إن وجد) -->
-  <url>
-    <loc>https://grinita.com/#products</loc>
-    <lastmod>2025-10-04</lastmod>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
   </url>
-
-  <!-- 🔹 روابط المقالات أو المدونة -->
-  <url>
-    <loc>https://grinita.com/#blog</loc>
-    <lastmod>2025-10-04</lastmod>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  </url>
-
-
 
 
   
