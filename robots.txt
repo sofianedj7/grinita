@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# مكان خريطة الموقع
+Sitemap: https://grinita.com/sitemap.xml
