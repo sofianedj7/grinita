@@ -1,5 +1,14 @@
 User-agent: *
 Allow: /
 
-# مكان خريطة الموقع
+# منع فهرسة صفحات أو ملفات مؤقتة (اختياري)
+Disallow: /temp/
+Disallow: /private/
+
+# خريطة الموقع
 Sitemap: https://grinita.com/sitemap.xml
+
+# تلميحات تحسين الفهرسة (اختياري لكنها مفيدة)
+Host: https://grinita.com
+Crawl-delay: 10
+
