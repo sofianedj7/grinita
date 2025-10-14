@@ -168,52 +168,114 @@
     </footer>
 
     <script src="products-data.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // --- كل دوال الجافاسكريبت المساعدة هنا ---
-            function createRatingStars(rating) { /* ... */ }
-            function createImageSlider(images) { /* ... */ }
-            function initProductSliders() { /* ... */ }
-            
-            const productsGrid = document.getElementById('products-grid-container');
-            function displayProducts(productsToDisplay) {
-                productsGrid.innerHTML = '';
-                productsToDisplay.forEach(product => {
-                    const productCardHTML = `
-                        <div class="product-card">
-                            <div class="product-img">
-                                <div class="product-img-slider">${createImageSlider(product.images)}</div>
-                                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-                            </div>
-                            <div class="product-content">
-                                <h3>${product.title_en}</h3><p>${product.desc_en}</p>
-                                <div class="product-meta"><div class="product-price">${product.price}</div><div class="product-rating">${createRatingStars(product.rating)}</div></div>
-                                <a href="${product.buyLink}" class="btn">Buy Now</a>
-                            </div>
-                        </div>`;
-                    productsGrid.innerHTML += productCardHTML;
-                });
-                initProductSliders();
-            }
-            if (typeof allProducts !== 'undefined') { displayProducts(allProducts); }
-
-            // --- كود الفلترة للهاتف ---
-            const filterToggleBtn = document.getElementById('filter-toggle-btn');
-            const filtersSidebar = document.getElementById('filters-sidebar');
-            const closeFilterBtn = document.getElementById('close-filter-btn');
-            const filterOverlay = document.getElementById('filter-overlay');
-            filterToggleBtn.addEventListener('click', () => { filtersSidebar.classList.add('active'); filterOverlay.style.display = 'block'; });
-            closeFilterBtn.addEventListener('click', () => { filtersSidebar.classList.remove('active'); filterOverlay.style.display = 'none'; });
-            filterOverlay.addEventListener('click', () => { filtersSidebar.classList.remove('active'); filterOverlay.style.display = 'none'; });
-
-            // --- كود قائمة الهاتف ---
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const mobileNav = document.getElementById('mobileNav');
-            mobileMenuToggle.addEventListener('click', () => mobileNav.classList.toggle('active'));
-
-            // ... بقية أكواد الجافاسكريبت للترجمة وفلتر السعر إلخ.
+<script src="products-data.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    
+    // --- كل الدوال المساعدة موجودة هنا ---
+    function createRatingStars(rating) { let starsHTML = ''; for (let i = 1; i <= 5; i++) { if (i <= rating) starsHTML += '<i class="fas fa-star"></i>'; else if (i - 0.5 === rating) starsHTML += '<i class="fas fa-star-half-alt"></i>'; else starsHTML += '<i class="far fa-star"></i>'; } return starsHTML; }
+    function createImageSlider(images) { return images.map((img, index) => `<img src="${img}" class="${index === 0 ? 'active' : ''}" alt="Product image">`).join(''); }
+    function initProductSliders() {
+        document.querySelectorAll('.product-card').forEach(card => {
+            const slider = card.querySelector('.product-img-slider'); if (!slider) return; const images = slider.querySelectorAll('img'); if (images.length <= 1) { const prev = card.querySelector('.slider-btn.prev'); const next = card.querySelector('.slider-btn.next'); if(prev) prev.style.display = 'none'; if(next) next.style.display = 'none'; return; }
+            const prevBtn = card.querySelector('.slider-btn.prev'); const nextBtn = card.querySelector('.slider-btn.next'); let currentIndex = 0;
+            function showImage(index) { images.forEach((img, i) => img.classList.toggle('active', i === index)); }
+            prevBtn.addEventListener('click', (e) => { e.stopPropagation(); currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1; showImage(currentIndex); });
+            nextBtn.addEventListener('click', (e) => { e.stopPropagation(); currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0; showImage(currentIndex); });
         });
-    </script>
+    }
+
+    // --- تعريف المتغيرات الرئيسية ---
+    const productsGrid = document.getElementById('products-grid-container');
+    const range1 = document.getElementById('range1');
+    const range2 = document.getElementById('range2');
+    const range1Value = document.getElementById('range1-value');
+    const range2Value = document.getElementById('range2-value');
+    const sliderTrack = document.querySelector('.slider-track');
+    
+    // --- دالة العرض الرئيسية ---
+    function displayProducts(productsToDisplay) {
+        productsGrid.innerHTML = '';
+        productsToDisplay.forEach(product => {
+            const productCardHTML = `
+                <div class="product-card">
+                    <div class="product-img"><div class="product-img-slider">${createImageSlider(product.images)}</div><button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button><button class="slider-btn next"><i class="fas fa-chevron-right"></i></button></div>
+                    <div class="product-content"><h3>${product.title_en}</h3><p>${product.desc_en}</p><div class="product-meta"><div class="product-price">${product.price}</div><div class="product-rating">${createRatingStars(product.rating)}</div></div><a href="${product.buyLink}" class="btn">Buy Now</a></div>
+                </div>`;
+            productsGrid.innerHTML += productCardHTML;
+        });
+        initProductSliders();
+    }
+
+    // --- ✅ دالة الفلترة الشاملة الجديدة ---
+    function filterAndDisplayProducts() {
+        if (typeof allProducts === 'undefined') return;
+
+        // 1. احصل على قيم الفلاتر الحالية
+        const selectedCategory = document.querySelector('input[name="category"]:checked').value;
+        let minPrice = parseInt(range1.value);
+        let maxPrice = parseInt(range2.value);
+        if (minPrice > maxPrice) [minPrice, maxPrice] = [maxPrice, minPrice]; // التأكد من الترتيب
+
+        // 2. ابدأ بكل المنتجات
+        let filteredProducts = allProducts;
+
+        // 3. قم بالفلترة حسب النوع (إذا لم يكن "الكل")
+        if (selectedCategory !== 'all') {
+            filteredProducts = filteredProducts.filter(product => product.category === selectedCategory);
+        }
+
+        // 4. قم بالفلترة حسب السعر
+        filteredProducts = filteredProducts.filter(product => {
+            const price = parseFloat(product.price.replace('$', '')); // تحويل السعر النصي إلى رقم
+            return price >= minPrice && price <= maxPrice;
+        });
+
+        // 5. اعرض المنتجات المفلترة
+        displayProducts(filteredProducts);
+    }
+
+    // --- ربط الأحداث (Event Listeners) ---
+    // ربط الفلترة بالنوع
+    document.querySelectorAll('input[name="category"]').forEach(radio => {
+        radio.addEventListener('change', filterAndDisplayProducts);
+    });
+
+    // ربط الفلترة بالسعر (يعمل تلقائيًا عند تحريك الشريط)
+    range1.addEventListener('input', filterAndDisplayProducts);
+    range2.addEventListener('input', filterAndDisplayProducts);
+
+    // --- كود تحديث شكل شريط السعر (بصريًا) ---
+    function updatePriceSliderVisuals() {
+        let minVal = parseInt(range1.value); let maxVal = parseInt(range2.value); if (minVal > maxVal) [minVal, maxVal] = [maxVal, minVal];
+        sliderTrack.style.left = (minVal / 50) * 100 + '%'; sliderTrack.style.width = ((maxVal - minVal) / 50) * 100 + '%';
+        range1Value.textContent = '$' + minVal; range2Value.textContent = '$' + maxVal;
+    }
+    range1.addEventListener('input', updatePriceSliderVisuals);
+    range2.addEventListener('input', updatePriceSliderVisuals);
+    updatePriceSliderVisuals(); // للتحديث عند تحميل الصفحة
+
+    // --- تشغيل كل شيء عند تحميل الصفحة ---
+    filterAndDisplayProducts(); // عرض المنتجات المفلترة افتراضيًا
+
+    // --- كود الفلترة الجانبية للهاتف ---
+    const filterToggleBtn = document.getElementById('filter-toggle-btn');
+    const filtersSidebar = document.getElementById('filters-sidebar');
+    const closeFilterBtn = document.getElementById('close-filter-btn');
+    const filterOverlay = document.getElementById('filter-overlay');
+    filterToggleBtn.addEventListener('click', () => { filtersSidebar.classList.add('active'); filterOverlay.style.display = 'block'; });
+    closeFilterBtn.addEventListener('click', () => { filtersSidebar.classList.remove('active'); filterOverlay.style.display = 'none'; });
+    filterOverlay.addEventListener('click', () => { filtersSidebar.classList.remove('active'); filterOverlay.style.display = 'none'; });
+
+    // --- كود قائمة الهاتف ---
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => mobileNav.classList.toggle('active'));
+    }
+    
+    // ... بقية أكواد الجافاسكريبت الأصلية للترجمة، إلخ ...
+});
+</script>
 </body>
 </html>
