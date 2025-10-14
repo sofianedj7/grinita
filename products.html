@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products | Grinita</title>
-    <meta name="description" content="Browse the complete collection of Grinita's creative digital products, including coloring books, digital stickers, and more.">
-    <link rel="canonical" href="https://www.grinita.com/products.html">
+    <title>All Products | Grinita Digital Marketplace</title>
+    <meta name="description" content="Browse the complete collection of Grinita's creative digital products, including coloring books, digital stickers, design templates, and more.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
-        /* تم نسخ كل أكواد CSS من ملفك الأصلي هنا */
+        /* The complete CSS from your index.html, with additions for the products page layout */
         :root {
             --primary: #D73F37; --secondary: #F7D54A; --dark: #212121;
             --light: #FDFDFD; --text: #333333; --text-light: #6C757D;
@@ -22,158 +22,28 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; color: var(--text); line-height: 1.7; background-color: var(--light); overflow-x: hidden; }
         body.rtl { font-family: 'Cairo', sans-serif; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--dark); }
-        body.rtl h1, body.rtl h2, body.rtl h3 { font-family: 'Cairo', sans-serif; }
-        .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 20px; }
-        .btn { display: inline-block; padding: 14px 35px; background: var(--primary); color: white; border-radius: 50px; font-weight: 600; cursor: pointer; text-decoration: none; box-shadow: 0 5px 20px rgba(215, 63, 55, 0.3); transition: var(--transition); border:none; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; margin-bottom: 1rem; color: var(--dark); }
+        body.rtl h1, body.rtl h2, body.rtl h3 { font-family: 'Cairo', sans-serif; font-weight: 700; }
+        h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.2; }
+        h2 { font-size: clamp(2rem, 4vw, 2.8rem); position: relative; display: inline-block; margin-bottom: 2rem; }
+        h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 70px; height: 4px; background: var(--primary); border-radius: 2px; }
+        p { margin-bottom: 1.5rem; color: var(--text-light); max-width: 600px; margin-left: auto; margin-right: auto; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn { display: inline-block; padding: 14px 35px; background: var(--primary); color: white; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: var(--transition); text-decoration: none; font-size: 1rem; box-shadow: 0 5px 20px rgba(215, 63, 55, 0.3); }
         .btn:hover { background: #C33029; transform: translateY(-4px); box-shadow: 0 8px 25px rgba(215, 63, 55, 0.4); }
         header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); position: sticky; width: 100%; top: 0; z-index: 1000; }
         .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; position: relative; }
         .logo-centered { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
         .logo-image { height: 45px; border-radius: 50%; }
+        .header-nav { flex: 1; }
+        .header-nav.left nav { display: flex; justify-content: flex-start; }
+        .header-nav.right nav { display: flex; justify-content: flex-end; }
         nav ul { display: flex; list-style: none; align-items: center; }
         nav ul li { margin: 0 15px; }
-        nav ul li a, nav ul li button { text-decoration: none; color: var(--text); font-weight: 500; font-family: 'Poppins', sans-serif; font-size: 1rem; }
-        .lang-toggle { background: transparent; border: 1px solid #ddd; border-radius: 20px; padding: 6px 16px; cursor: pointer; }
-
-        /* أنماط جديدة لصفحة المنتجات */
-        .page-wrapper { padding-top: 120px; padding-bottom: 100px; }
-        .products-layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; }
-        .filters-sidebar { background: white; border-radius: 20px; padding: 30px; box-shadow: var(--shadow); align-self: start; position: sticky; top: 120px; }
-        .filter-group { margin-bottom: 2rem; }
-        .filter-group h3 { font-size: 1.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--primary); }
-        .filter-group ul { list-style: none; }
-        .filter-group li { margin-bottom: 0.8rem; }
-        .filter-group label { display: flex; align-items: center; cursor: pointer; }
-        .filter-group input { margin-right: 10px; }
-        .products-main { }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid #eee; display: flex; flex-direction: column; }
+        nav ul li a, nav ul li button { text-decoration: none; color: var(--text); font-weight: 500; transition: var(--transition); position: relative; padding-bottom: 5px; background: none; border: none; font-family: inherit; font-size: 1rem; cursor: pointer; white-space: nowrap; }
+        .lang-toggle { border: 1px solid #ddd; border-radius: 20px; padding: 6px 16px; }
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid #eee; display: flex; flex-direction: column; width: 100%; }
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
         .product-img { height: 220px; position: relative; overflow: hidden; }
         .product-img-slider { width: 100%; height: 100%; position: relative; }
-        .product-img-slider img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.3s ease-in-out; }
-        .product-img-slider img.active { opacity: 1; z-index: 1; }
-        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.4); color: white; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer; z-index: 2; opacity: 0; transition: opacity 0.3s ease; }
-        .product-card:hover .slider-btn { opacity: 1; }
-        .slider-btn.prev { left: 10px; }
-        .slider-btn.next { right: 10px; }
-        .product-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .product-content h3 { font-size: 1.4rem; }
-        .product-content p { flex-grow: 1; font-size: 0.95rem; color: var(--text-light); }
-        .product-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-        .product-price { font-size: 1.6rem; font-weight: 700; color: var(--primary); }
-        .product-rating .fas, .product-rating .fa-star-half-alt { color: var(--secondary); }
-        footer { /* تم نسخ الأنماط من ملفك الأصلي */ }
-        
-        body.rtl { text-align: right; }
-        body.rtl .filter-group input { margin-right: 0; margin-left: 10px; }
-    </style>
-</head>
-<body>
-    <header id="header">
-        <div class="container header-container">
-            <div class="header-nav left desktop-nav">
-                <nav>
-                    <ul>
-                        <li><a href="index.html" data-key="navHome">Home</a></li>
-                        <li><a href="products.html" data-key="navAllProducts">All Products</a></li>
-                        <li><a href="index.html#blog" data-key="navBlog">Blog</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <a href="index.html" class="logo-centered">
-                <img src="images/grinita store stickers and coloring book and t shirt.png" alt="Grinita Logo" class="logo-image">
-            </a>
-            <div class="header-nav right desktop-nav">
-                <nav>
-                    <ul>
-                        <li><a href="index.html#faq" data-key="navFaq">FAQ</a></li>
-                        <li><a href="index.html#contact" data-key="navContact">Contact</a></li>
-                        <li><button class="lang-toggle" id="langToggle">AR</button></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <main class="page-wrapper">
-        <div class="container">
-            <div class="products-layout">
-                <aside class="filters-sidebar">
-                    <div class="filter-group">
-                        <h3 data-key="filterCategory">Category</h3>
-                        <ul>
-                            <li><label><input type="checkbox" name="category" value="all" checked> <span data-key="allProductsTab">All</span></label></li>
-                            <li><label><input type="checkbox" name="category" value="stickers"> <span data-key="stickersTab">Stickers</span></label></li>
-                            <li><label><input type="checkbox" name="category" value="coloring-books"> <span data-key="coloringBooksTab">Coloring Books</span></label></li>
-                            <li><label><input type="checkbox" name="category" value="ebooks"> <span data-key="ebooksTab">eBooks</span></label></li>
-                        </ul>
-                    </div>
-                </aside>
-
-                <main class="products-main">
-                    <div id="products-grid-container" class="products-grid">
-                        </div>
-                </main>
-            </div>
-        </div>
-    </main>
-
-    <footer id="footer">
-        </footer>
-
-    <script src="products-data.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const productsGrid = document.getElementById('products-grid-container');
-            
-            function createRatingStars(rating) { /* ... نفس الدالة من الرد السابق ... */ }
-            function createImageSlider(images) { /* ... نفس الدالة من الرد السابق ... */ }
-
-            function displayProducts(products) {
-                productsGrid.innerHTML = ''; // مسح المنتجات الحالية
-                products.forEach(product => {
-                    const productCardHTML = `
-                        <div class="product-card">
-                            <div class="product-img">
-                                <div class="product-img-slider">${createImageSlider(product.images)}</div>
-                                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-                            </div>
-                            <div class="product-content">
-                                <h3 data-key-title="${product.id}">${product.title_en}</h3>
-                                <p data-key-desc="${product.id}">${product.desc_en}</p>
-                                <div class="product-meta">
-                                    <div class="product-price">${product.price}</div>
-                                    <div class="product-rating">${createRatingStars(product.rating)}</div>
-                                </div>
-                                <a href="${product.buyLink}" class="btn" data-key="buyNow">Buy Now</a>
-                            </div>
-                        </div>
-                    `;
-                    productsGrid.innerHTML += productCardHTML;
-                });
-                initProductSliders();
-            }
-
-            displayProducts(allProducts);
-
-            document.querySelectorAll('input[name="category"]').forEach(checkbox => {
-                checkbox.addEventListener('change', () => {
-                    const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
-                    if (selectedCategories.includes('all') || selectedCategories.length === 0) {
-                        displayProducts(allProducts);
-                    } else {
-                        const filteredProducts = allProducts.filter(p => selectedCategories.includes(p.category));
-                        displayProducts(filteredProducts);
-                    }
-                });
-            });
-
-            function initProductSliders() { /* ... نفس دالة السلايدر من ملفك الأصلي ... */ }
-            // ... بقية السكريبتات من ملفك الأصلي (الترجمة، القائمة المنسدلة، إلخ)
-        });
-    </script>
-</body>
-</html>
+        .product-img-slider img { position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity
