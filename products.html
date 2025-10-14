@@ -62,7 +62,15 @@
         .slider-container { position: relative; height: 5px; background: #ddd; border-radius: 5px; }
         .slider-track { position: absolute; height: 100%; background: var(--primary); border-radius: 5px; }
         .range-slider { -webkit-appearance: none; appearance: none; width: 100%; background: transparent; position: absolute; top: -5px; pointer-events: none; }
-        .range-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 15px; height: 15px; background: var(--primary); border-radius: 50%; cursor: pointer; pointer-events: auto; }
+        .range-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 15px; height: 15px; background: var(--primary); border-radius: 50%; cursor: pointer; pointer-events: auto; touch-action: none; }
+        .range-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none; /* Some browsers add a border */
+    touch-action: none; /* ✅ الإصلاح لفايرفوكس */}
         
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .product-card { background: white; border-radius: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; overflow: hidden; }
