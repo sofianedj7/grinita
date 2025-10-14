@@ -1,37 +1,125 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products | Grinita Digital Marketplace</title>
-    <meta name="description" content="Browse the complete collection of Grinita's creative digital products, including coloring books, digital stickers, design templates, and more.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- Google tag analytics (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXPSX9PF4H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TXPSX9PF4H');
+</script>
+
+  
+<!-- 🔹 META TAGS & SEO for Grinita -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary Meta Tags -->
+<title>Grinita | Premium Digital Products & Creative Marketplace</title>
+<meta name="title" content="Grinita | Premium Digital Products & Creative Marketplace">
+<meta name="description" content="Discover Grinita — your source for premium digital products, creative design templates, fantasy art, printable coloring books, and trending digital stickers. Perfect for creators, artists, and dreamers.">
+<meta name="keywords" content="grinita, digital products, coloring books, digital stickers, creative assets, fantasy art, design templates, digital downloads, printables, ebook store, design marketplace">
+<meta name="author" content="Grinita">
+<link rel="canonical" href="https://www.grinita.com">
+
+<!-- Language & Hreflang for SEO -->
+<link rel="alternate" hreflang="en" href="https://www.grinita.com" />
+<link rel="alternate" hreflang="ar" href="https://www.grinita.com/ar/" />
+<link rel="alternate" hreflang="x-default" href="https://www.grinita.com" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.grinita.com">
+<meta property="og:title" content="Grinita | Premium Digital Products & Creative Marketplace">
+<meta property="og:description" content="Shop creative digital products, fantasy-themed art, design templates, and beautiful printable coloring books at Grinita.">
+<meta property="og:image" content="https://www.grinita.com/images/og-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://www.grinita.com">
+<meta property="twitter:title" content="Grinita | Premium Digital Products & Creative Marketplace">
+<meta property="twitter:description" content="Creative digital assets for artists and dreamers. Explore coloring books, stickers, and design templates.">
+<meta property="twitter:image" content="https://www.grinita.com/images/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="https://placehold.co/32x32/D73F37/FFFFFF?text=G&font=playfairdisplay" type="image/png">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Performance Optimization -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#D73F37">
+<meta name="robots" content="index, follow">
+<meta name="google" content="translate">
+
+<!-- Structured Data (JSON-LD for Google) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Grinita",
+  "url": "https://www.grinita.com",
+  "logo": "https://www.grinita.com/images/logo.png",
+  "description": "Shop premium digital products, creative templates, coloring books, and digital stickers for stress relief and inspiration.",
+  "sameAs": [
+    "https://www.instagram.com/grinita",
+    "https://www.pinterest.com/grinita",
+    "https://www.etsy.com/shop/grinita"
+  ]
+}
+</script>
+
+    
     <style>
-        /* The complete CSS from your index.html, with additions for the products page layout */
         :root {
-            --primary: #D73F37; --secondary: #F7D54A; --dark: #212121;
-            --light: #FDFDFD; --text: #333333; --text-light: #6C757D;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.07); --transition: all 0.3s ease-in-out;
+            --primary: #D73F37; /* Vibrant Red from mushroom */
+            --secondary: #F7D54A; /* Yellow from spots */
+            --dark: #212121; /* Deep Black from character */
+            --light: #FDFDFD;
+            --text: #333333;
+            --text-light: #6C757D;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            --transition: all 0.3s ease-in-out;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; color: var(--text); line-height: 1.7; background-color: var(--light); overflow-x: hidden; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
         body.rtl { font-family: 'Cairo', sans-serif; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; margin-bottom: 1rem; color: var(--dark); }
         body.rtl h1, body.rtl h2, body.rtl h3 { font-family: 'Cairo', sans-serif; font-weight: 700; }
+
         h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.2; }
         h2 { font-size: clamp(2rem, 4vw, 2.8rem); position: relative; display: inline-block; margin-bottom: 2rem; }
         h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 70px; height: 4px; background: var(--primary); border-radius: 2px; }
+
         p { margin-bottom: 1.5rem; color: var(--text-light); max-width: 600px; margin-left: auto; margin-right: auto; }
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
         .btn { display: inline-block; padding: 14px 35px; background: var(--primary); color: white; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: var(--transition); text-decoration: none; font-size: 1rem; box-shadow: 0 5px 20px rgba(215, 63, 55, 0.3); }
         .btn:hover { background: #C33029; transform: translateY(-4px); box-shadow: 0 8px 25px rgba(215, 63, 55, 0.4); }
-        header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); position: sticky; width: 100%; top: 0; z-index: 1000; }
+        
+        section { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+
+        header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); }
+        header.scrolled { box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); }
         .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; position: relative; }
         .logo-centered { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
         .logo-image { height: 45px; border-radius: 50%; }
@@ -40,10 +128,762 @@
         .header-nav.right nav { display: flex; justify-content: flex-end; }
         nav ul { display: flex; list-style: none; align-items: center; }
         nav ul li { margin: 0 15px; }
-        nav ul li a, nav ul li button { text-decoration: none; color: var(--text); font-weight: 500; transition: var(--transition); position: relative; padding-bottom: 5px; background: none; border: none; font-family: inherit; font-size: 1rem; cursor: pointer; white-space: nowrap; }
-        .lang-toggle { border: 1px solid #ddd; border-radius: 20px; padding: 6px 16px; }
-        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid #eee; display: flex; flex-direction: column; width: 100%; }
+        nav ul li a { text-decoration: none; color: var(--text); font-weight: 500; transition: var(--transition); position: relative; padding-bottom: 5px; }
+        nav ul li a:hover { color: var(--primary); }
+        nav ul li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: var(--transition); }
+        nav ul li a:hover::after { width: 100%; }
+        .lang-toggle { background: transparent; border: 1px solid #ddd; border-radius: 20px; padding: 6px 16px; cursor: pointer; font-weight: 500; }
+        .mobile-menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark); z-index: 10; }
+        .mobile-nav { display: none; }
+
+        .hero { padding: 200px 0 120px; text-align: center; background-color: #FFF9F8; position: relative; overflow: hidden; }
+        .hero-content { position: relative; z-index: 2; }
+        .hero h1 { color: var(--dark); }
+        .hero p { color: var(--text-light); font-size: 1.2rem; margin-bottom: 1.5rem; }
+        .hero-features { color: var(--text-light); font-weight: 500; margin-bottom: 2.5rem; }
+        .hero-logo-large { width: 140px; height: 140px; margin: 0 auto 2rem; animation: float 6s ease-in-out infinite; border-radius: 50%; box-shadow: var(--shadow); }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+
+        .ticker { overflow-x: auto; padding: 50px 0; cursor: grab; user-select: none; scrollbar-width: none; -ms-overflow-style: none; }
+        .ticker::-webkit-scrollbar { display: none; }
+        .ticker.grabbing { cursor: grabbing; }
+        .ticker-wrapper { display: flex; width: fit-content; }
+        .ticker-container { display: flex; animation: ticker-scroll 40s linear infinite; }
+        .ticker:hover .ticker-container { animation-play-state: paused; }
+        
+        @keyframes ticker-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); flex-shrink: 0; border: 1px solid #eee; display: flex; flex-direction: column; width: 320px; margin: 0 20px;}
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
-        .product-img { height: 220px; position: relative; overflow: hidden; }
-        .product-img-slider { width: 100%; height: 100%; position: relative; }
-        .product-img-slider img { position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity
+        
+        .product-img {
+            height: 220px;
+            background-color: #f7f7f7;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-img-slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .product-img-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            pointer-events: none;
+        }
+        .product-img-slider img.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-card:hover .slider-btn {
+            opacity: 1;
+        }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+        .slider-btn:hover { background-color: rgba(0, 0, 0, 0.6); }
+
+        .product-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-content h3 { margin-bottom: 10px; font-size: 1.4rem; color: var(--dark); }
+        .product-content p { margin-bottom: 1rem; font-size: 0.95rem; flex-grow: 1; }
+        .product-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .product-price { font-size: 1.6rem; font-weight: 700; color: var(--primary); }
+        .product-rating .fas, .product-rating .fa-star-half-alt { color: var(--secondary); }
+        body.rtl .product-rating { direction: ltr; } /* Keep stars LTR */
+
+        .product-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 25px; border: 1px solid #ddd; background: white; border-radius: 30px; font-weight: 600; cursor: pointer; transition: var(--transition); }
+        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; } 
+        .browse-more-container { text-align: center; margin-top: 3rem; }
+
+        #gallery { padding-bottom: 50px; }
+        #gallery .ticker { padding-top: 0; }
+        .gallery-item { flex-shrink: 0; width: 350px; height: 450px; margin: 0 10px; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); pointer-events: none;}
+        .gallery-item:hover img { transform: scale(1.05); }
+        
+        #learn { background-color: #F8F8F8; }
+        .learn-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .video-placeholder { background: var(--dark); border-radius: 20px; aspect-ratio: 16/9; display: flex; justify-content: center; align-items: center; box-shadow: var(--shadow); }
+        .video-play-button { font-size: 4rem; color: rgba(255,255,255,0.8); transition: var(--transition); cursor: pointer; }
+        .video-play-button:hover { color: white; transform: scale(1.1); }
+        .learn-text h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        
+        #stores { background-color: #F8F8F8; }
+        .stores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: stretch; }
+        .laptop-container { position: relative; padding-bottom: 1rem; transition: var(--transition); display: flex; flex-direction: column; }
+        .laptop-container:hover { transform: translateY(-10px); }
+        .laptop-screen { background: #fff; border: 12px solid #2C3333; border-bottom-width: 20px; border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow); position: relative; z-index: 2; flex-grow: 1; display: flex; flex-direction: column;}
+        .laptop-base { width: 60%; height: 12px; background: #DCDCDC; margin: -2px auto 0 auto; border-radius: 0 0 8px 8px; position: relative; z-index: 1; border: 1px solid #B0B0B0; }
+        .store-awning { height: 3rem; margin-bottom: 1.5rem; background-image: repeating-linear-gradient(-45deg, #FF6B6B, #FF6B6B 15px, #ffffff 15px, #ffffff 30px); border: 2px solid var(--primary); border-top: none; border-radius: 0 0 10px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .store-details { text-align: center; }
+        .store-details .fab, .store-details .fas { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
+        .store-details h3 { font-size: 1.5rem; }
+        .store-details .btn { margin-top: 1rem; background-color: #FF6B6B; box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3); }
+        .store-details .btn:hover { background-color: #E05252; box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4); }
+
+        #blog { background: white; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .blog-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid #eee; }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .blog-card img { width: 100%; height: 200px; object-fit: cover; }
+        .blog-content { padding: 25px; }
+        .blog-category { color: var(--primary); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .blog-title { font-size: 1.4rem; color: var(--dark); margin-bottom: 0.5rem; line-height: 1.4; }
+        .blog-excerpt { font-size: 0.95rem; margin-bottom: 1rem; }
+        .read-more { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .read-more:hover { text-decoration: underline; }
+
+        #faq { background-color: #F8F8F8; }
+        .faq-item { background: white; border-radius: 15px; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .faq-question { padding: 20px 25px; font-weight: 600; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question i { transition: transform 0.3s ease; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+        .faq-answer p { padding: 0 25px 20px; margin: 0; max-width: none; }
+
+        #about { background: white; }
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-image img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); }
+        .about-text h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+        #contact { background-color: #F8F8F8; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: flex-start; }
+        .contact-info-item { display: flex; align-items: flex-start; margin-bottom: 2rem; }
+        .contact-info-item i { font-size: 1.5rem; color: var(--primary); margin-right: 1.5rem; margin-top: 5px; }
+        .contact-form { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; transition: var(--transition); }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(215, 63, 55, 0.1); }
+
+        footer { background: var(--dark); color: white; padding: 60px 0 30px; }
+        .footer-container { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer-logo-link { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1.5rem; }
+        .footer-logo-image { height: 40px; margin-right: 12px; border-radius: 50%; }
+        .footer-logo-text { color: white; font-size: 1.8rem; font-family: 'Playfair Display', serif; }
+        .social-links { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .social-links a { color: white; font-size: 1.5rem; transition: var(--transition); }
+        .social-links a:hover { color: var(--secondary); transform: translateY(-3px); }
+        .copyright { width: 100%; text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; }
+
+        @media (max-width: 992px) { .about-container, .contact-container, .learn-container { grid-template-columns: 1fr; } .about-image, .video-placeholder { margin-top: 2rem; } }
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .mobile-menu-toggle { display: block; position: absolute; right: 20px; }
+            .logo-centered { position: static; transform: none; }
+            .header-container { justify-content: space-between; }
+            .header-nav.left, .header-nav.right { display:none; }
+            .mobile-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+            .mobile-nav.active { display: flex; }
+            .mobile-nav ul { flex-direction: column; }
+            .mobile-nav ul li { margin: 15px 0; text-align: center; }
+        }
+        
+        body.rtl { direction: rtl; text-align: right; }
+        body.rtl h2::after { left: auto; right: 50%; transform: translateX(50%); }
+        body.rtl nav ul li { margin-left: 0; margin-right: 20px; }
+        body.rtl .contact-info-item i, body.rtl .footer-logo-image { margin-left: 1.5rem; margin-right: 0; }
+        body.rtl .mobile-menu-toggle { right: auto; left: 20px; }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+             <div class="header-nav left desktop-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#home" data-key="navHome">Home</a></li>
+                        <li><a href="#featured-products" data-key="navFeatured">Featured</a></li>
+                        <li><a href="#all-products" data-key="navAllProducts">All Products</a></li>
+                         <li><a href="#gallery" data-key="navGallery">Gallery</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <a href="#" class="logo-centered">
+                <img src="images/grinita store stickers and coloring book and t shirt.png" alt="Grinita Logo" class="logo-image">
+            </a>
+            <div class="header-nav right desktop-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#learn" data-key="navLearn">Learn</a></li>
+                        <li><a href="#blog" data-key="navBlog">Blog</a></li>
+                        <li><a href="#faq" data-key="navFaq">FAQ</a></li>
+                        <li><a href="#contact" data-key="navContact">Contact</a></li>
+                        <li><button class="lang-toggle" id="langToggle">AR</button></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+             <ul>
+                <li><a href="#home" data-key="navHome">Home</a></li>
+                <li><a href="#featured-products" data-key="navFeatured">Featured</a></li>
+                <li><a href="#all-products" data-key="navAllProducts">All Products</a></li>
+                <li><a href="#gallery" data-key="navGallery">Gallery</a></li>
+                <li><a href="#learn" data-key="navLearn">Learn</a></li>
+                <li><a href="#blog" data-key="navBlog">Blog</a></li>
+                <li><a href="#faq" data-key="navFaq">FAQ</a></li>
+                <li><a href="#contact" data-key="navContact">Contact</a></li>
+                <li><button class="lang-toggle" id="langToggleMobile">AR</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <img src="images/grinita store stickers and coloring book and t shirt.png" alt="Grinita's Creative Mascot" class="hero-logo-large">
+                <h1 data-key="heroTitle">Grinita: Your World of Creative Joy</h1>
+                <p data-key="heroSubtitle">Discover unique digital stickers, delightful coloring books, and inspiring stories crafted to bring a smile to your face.</p>
+                <p class="hero-features" data-key="heroFeatures">⭐ Instant Downloads | High Quality | Affordable Prices</p>
+                <a href="#all-products" class="btn" data-key="heroButton">Explore Our Products</a>
+            </div>
+        </section>
+<!-- هنا في العادة تحت الكتابة تأتي المنتجات لكني قمت بحذفها لاني قمت بإضافة منتجات منفصلة في ملف -->
+        <section id="featured-products" class="ticker">
+             <div class="ticker-wrapper">
+                <div id="featured-products-container" class="ticker-container">
+              </div>
+            </div>
+        </section>
+
+        <section id="all-products">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-key="allProductsTitle">All Our Products</h2>
+                    <p data-key="allProductsSubtitle">Browse our complete collection of creative assets.</p>
+                </div>
+                <div class="product-tabs">
+                    <button class="tab-btn active" data-tab="stickers" data-key="stickersTab">Stickers</button>
+                    <button class="tab-btn" data-tab="coloring-books" data-key="coloringBooksTab">Coloring Books</button>
+                    <button class="tab-btn" data-tab="ebooks" data-key="ebooksTab">eBooks</button>
+                </div>
+
+                <div id="stickers" class="tab-content active">
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <div class="product-img-slider">
+                                    <img src="images/stickers flowers digtal png beauteful flowers stickers.jpg" alt="Sticker Pack 1" class="active">
+                                    <img src="images/stickers-Inspirational-Motivational-sentences-MOCKUP.gif" alt="Sticker example 2">
+                                </div>
+                                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <h3 data-key="sticker1Title">Floral Digital Sticker Pack – 20+ Printable Flower Stickers</h3>
+                                <p data-key="sticker1Desc">A rich collection of floral stickers. Beautiful and eye-soothing colors, perfect for decorating your notebooks, phone, and more. Ready for instant download!</p>
+                                <div class="product-meta">
+                                    <div class="product-price">$3.99</div>
+                                    <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                </div>
+                                <a href="https://grinita.gumroad.com/l/FloralDigitalSticker?wanted=true" class="btn" data-key="buyNow">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                             <div class="product-img">
+                                <div class="product-img-slider">
+                                    <img src="images/30-Inspirational-motivational-Digital-stickers-4.png" alt="Sticker Pack 2" class="active">
+                                    <img src="https://placehold.co/400x220/E1F5FE/4FC3F7?text=Quotes+2" alt="Sticker example 2">
+                                </div>
+                                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <h3 data-key="sticker2Title">30+ Motivational Quote Stickers</h3>
+                                <p data-key="sticker2Desc">Printable & digital designs perfect for women, girls, and moms. Beautiful floral and heart templates to inspire every day.</p>
+                                <div class="product-meta">
+                                    <div class="product-price">$3.99</div>
+                                    <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                </div>
+                                <a href="https://grinita.gumroad.com/l/motivationalstickers?wanted=true" class="btn" data-key="buyNow">Buy Now</a>
+                            </div>
+                        </div>
+                         <div class="product-card">
+                            <div class="product-img">
+                                <div class="product-img-slider">
+                                    <img src="https://placehold.co/400x220/FFEBEE/EF9A9A?text=Cute+Animals" alt="Sticker Pack 3" class="active">
+                                </div>
+                                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <h3 data-key="sticker3Title">Cute Animal Stickers</h3>
+                                <p data-key="sticker3Desc">A collection of 25 adorable animal stickers for your planner.</p>
+                                <div class="product-meta">
+                                    <div class="product-price">$10.99</div>
+                                    <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                </div>
+                                <a href="#" class="btn" data-key="buyNow">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="browse-more-container"><a href="products.html" class="btn" data-key="browseMore">Browse More</a></div>
+                </div>
+
+                <div id="coloring-books" class="tab-content">
+                    <div class="products-grid">
+                         <div class="product-card">
+                            <div class="product-img">
+                                <div class="product-img-slider">
+                                    <img src="images/English-countryside-Coloring-Book,-Download-now-50-Relaxing-Designs-–-PDF-Digital-Edition-Image11-01.jpg" alt="Coloring Book 1" class="active">
+                                     <img src="https://placehold.co/400x220/E0F2F1/80CBC4?text=Countryside+2" alt="Coloring Book page">
+                                </div>
+                                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <h3 data-key="coloringBook1Title">English Countryside Coloring Book</h3>
+                                <p data-key="coloringBook1Desc">50 Relaxing Designs of Villages, Gardens, and Nature PDF Design Pages.</p>
+                                <div class="product-meta">
+                                    <div class="product-price">$3.99</div>
+                                    <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                </div>
+                                <a href="https://grinita.gumroad.com/l/EnglishCountrysideColoring?wanted=true" class="btn" data-key="buyNow">Buy Now</a>
+                            </div>
+                        </div>
+                         <div class="product-card">
+                             <div class="product-img">
+                                <div class="product-img-slider">
+                                    <img src="images/Little-Corner-Coloring-Book-cover-PDF-50-design-pages-1.jpg" alt="Coloring Book 2" class="active">
+                                </div>
+                                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <h3 data-key="coloringBook2Title">Little Corner Coloring Book</h3>
+                                <p data-key="coloringBook2Desc">40 House & Room Designs | 102 Pages | PDF & PNG.</p>
+                                <div class="product-meta">
+                                    <div class="product-price">$3.99</div>
+                                    <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                </div>
+                                <a href="https://grinita.gumroad.com/l/LittleCornerColoring?wanted=true" class="btn" data-key="buyNow">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="browse-more-container"><a href="products.html" class="btn" data-key="browseMore">Browse More</a></div>
+                </div>
+
+                <div id="ebooks" class="tab-content">
+                     <div class="products-grid">
+                         <div class="product-card">
+                             <div class="product-img">
+                                <div class="product-img-slider">
+                                    <img src="https://placehold.co/400x220/ECEFF1/B0BEC5?text=eBook+1" alt="eBook 1" class="active">
+                                </div>
+                                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <h3 data-key="ebook1Title">The Storyteller's Guide</h3>
+                                <p data-key="ebook1Desc">An essential eBook for mastering the art of creative writing.</p>
+                                <div class="product-meta">
+                                    <div class="product-price">$19.99</div>
+                                    <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                </div>
+                                <a href="#" class="btn" data-key="buyNow">Buy Now</a>
+                            </div>
+                        </div>
+                         <div class="product-card">
+                             <div class="product-img">
+                                <div class="product-img-slider">
+                                    <img src="https://placehold.co/400x220/E8EAF6/C5CAE9?text=eBook+2" alt="eBook 2" class="active">
+                                </div>
+                                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="product-content">
+                                <h3 data-key="ebook2Title">Freelancer's Playbook</h3>
+                                <p data-key="ebook2Desc">Your ultimate guide to building a successful freelance career.</p>
+                                <div class="product-meta">
+                                    <div class="product-price">$29.99</div>
+                                    <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                </div>
+                                <a href="#" class="btn" data-key="buyNow">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="browse-more-container"><a href="products.html" class="btn" data-key="browseMore">Browse More</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <div class="section-title"><h2 data-key="galleryTitle">Our Creative Gallery</h2><p data-key="gallerySubtitle">A glimpse into our world of fantasy and design.</p></div>
+            </div>
+            <div class="ticker">
+                <div class="ticker-wrapper">
+                    <div class="ticker-container" style="animation-duration: 50s;">
+                        <!-- IMAGE 1: REPLACE URL WITH YOUR IMAGE -->
+                        <div class="gallery-item"><img src="images/English-countryside-Coloring-Book,-Download-now-50-Relaxing-Designs-–-PDF-Digital-Edition-Image11-01.jpg" alt="Gallery image 1"></div>
+                        <!-- IMAGE 2: REPLACE URL WITH YOUR IMAGE -->
+                        <div class="gallery-item"><img src="images/stickers flowers digtal png beauteful flowers stickers.jpg" alt="Gallery image 2"></div>
+                        <!-- IMAGE 3: REPLACE URL WITH YOUR IMAGE -->
+                        <div class="gallery-item"><img src="images/Little-Corner-Coloring-Book-cover-PDF-50-design-pages-1.jpg" alt="Gallery image 3"></div>
+                        <!-- IMAGE 4: REPLACE URL WITH YOUR IMAGE -->
+                        <div class="gallery-item"><img src="images/30-Inspirational-motivational-Digital-stickers-4.png" alt="Gallery image 4"></div>
+                        <!-- IMAGE 5: REPLACE URL WITH YOUR IMAGE -->
+                        <div class="gallery-item"><img src="images/Flower  Mockup  for 50 design flowers pages.jpg" alt="Gallery image 5"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stores">
+            <div class="container">
+                <div class="section-title"><h2 data-key="storesTitle">Our Marketplaces</h2><p data-key="storesSubtitle">Find our exclusive collections on your favorite platforms.</p></div>
+                <div class="stores-grid">
+                    <div class="laptop-container">
+                        <div class="laptop-screen">
+                           <div class="store-awning"></div>
+                           <div class="iframe-container" style="flex-grow: 1;">
+                               <iframe style="border-radius:12px;border:none; width: 100%; height: 100%;" src="https://embed.creator-spring.com/widget?slug=mushroomsstore&per=21&currency=&page=1&layout=carousel-small&theme=light" title="MushroomsStore Merch store powered by Spring" data-reactroot=""></iframe>
+                           </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="laptop-container"><div class="laptop-screen"><div class="store-awning"></div><div class="store-details"><i class="fas fa-store"></i><h3 data-key="cmTitle">Creative Market</h3><p data-key="cmDesc">Professional design assets.</p><a href="#" class="btn" data-key="visitShop">Visit Shop</a></div></div><div class="laptop-base"></div></div>
+                    <div class="laptop-container"><div class="laptop-screen"><div class="store-awning"></div><div class="store-details"><i class="fas fa-shopping-cart"></i><h3 data-key="gumroadTitle">Gumroad Goods</h3><p data-key="gumroadDesc">Premium guides & direct downloads.</p><a href="#" class="btn" data-key="visitShop">Visit Shop</a></div></div><div class="laptop-base"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learn">
+            <div class="container learn-container">
+                 <div class="learn-text">
+                    <h2 data-key="learnTitle">Watch & Learn</h2>
+                    <h3 data-key="learnHeading">Unlock Your Potential</h3>
+                    <p data-key="learnText">Check out our tutorials and tips on how to make the most of your digital assets. From beginner guides to advanced techniques, we're here to help you grow as a creator.</p>
+                    <a href="#" class="btn" data-key="learnButton">Visit Our Channel</a>
+                </div>
+                <div class="video-placeholder">
+                    <i class="fas fa-play video-play-button"></i>
+                </div>
+            </div>
+        </section>
+        
+        <section id="blog">
+            <div class="container">
+                <div class="section-title"><h2 data-key="blogTitle">From Our Blog</h2><p data-key="blogSubtitle">Get the latest tips, tricks, and inspiration for your creative journey.</p></div>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="images/Little-Corner-Coloring-Book-cover-PDF-50-design-pages-1.jpg" alt="Blog post about design trends">
+                        <div class="blog-content">
+                            <div class="blog-category" data-key="blog1Category">DESIGN TIPS</div>
+                            <h3 class="blog-title" data-key="blog1Title">Relax and Create with the Little Corner Coloring Book</h3>
+                            <p class="blog-excerpt" data-key="blog1Excerpt">The Little Corner Coloring Book is the perfect creative escape for kids, teens, and adults who love art and relaxation. With 50 unique designs of cozy home corners, every page is designed to inspire mindfulness and joy.</p>
+                            <a href="#" class="read-more" data-key="readMore">Read More...</a>
+                        </div>
+                    </div>
+                     <div class="blog-card">
+                        <img src="images/30-Inspirational-motivational-Digital-stickers-4.png" alt="Blog post about freelancing">
+                        <div class="blog-content">
+                            <div class="blog-category" data-key="blog2Category">INSPIRATION</div>
+                            <h3 class="blog-title" data-key="blog2Title">Motivational Stickers for Positivity</h3>
+                            <p class="blog-excerpt" data-key="blog2Excerpt">Our collection features 30+ beautiful digital stickers designed with floral hearts, cozy shapes, and inspiring quotes. These stickers are perfect for decorating journals, planners, laptops, notebooks, or phone cases.</p>
+                            <a href="#" class="read-more" data-key="readMore">Read More...</a>
+                        </div>
+                    </div>
+                     <div class="blog-card">
+                        <img src="images/grinita store stickers and coloring book and t shirt.png" alt="Blog post about digital tools">
+                        <div class="blog-content">
+                            <div class="blog-category" data-key="blog3Category">RESOURCES</div>
+                            <h3 class="blog-title" data-key="blog3Title">Discover Grinita</h3>
+                            <p class="blog-excerpt" data-key="blog3Excerpt">Grinita is the go-to online shop for digital stickers, coloring books, and creative resources. Learn more about our mission to spread joy through design.</p>
+                            <a href="#" class="read-more" data-key="readMore">Read More...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="container">
+                <div class="section-title"><h2 data-key="faqTitle">Frequently Asked Questions</h2><p data-key="faqSubtitle">Have questions? We've got answers. If you can't find what you're looking for, feel free to contact us.</p></div>
+                <div class="faq-container">
+                    <div class="faq-item"><div class="faq-question"><span data-key="faq1q">What file formats are included?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p data-key="faq1a">Each product comes with a variety of file formats to ensure compatibility with most design software. Typically, you'll find PNG, JPG, PSD, and AI files. Please check the individual product description for specific details.</p></div></div>
+                    <div class="faq-item"><div class="faq-question"><span data-key="faq2q">How do I receive my files after purchase?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p data-key="faq2a">Once your purchase is complete, you will receive an email with a secure download link. You can download your files instantly. The link will be active for 30 days.</p></div></div>
+                    <div class="faq-item"><div class="faq-question"><span data-key="faq3q">What is your refund policy?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p data-key="faq3a">Due to the digital nature of our products, all sales are final and we do not offer refunds. However, if you encounter any issues with your files, please contact our support team, and we'll be happy to assist you.</p></div></div>
+                     <div class="faq-item"><div class="faq-question"><span data-key="faq4q">Can I use these assets for commercial projects?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p data-key="faq4a">Yes! All our products come with a standard commercial license, which allows you to use them in an unlimited number of personal and commercial projects. However, you are not allowed to resell or redistribute the original files.</p></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about">
+            <div class="container">
+                <div class="section-title"><h2 data-key="aboutTitle">About Grinita</h2></div>
+                <div class="about-container">
+                    <div class="about-image"><img src="images/grinita store stickers and coloring book and t shirt.png" alt="A creative workspace representing Grinita's spirit"></div>
+                    <div class="about-text">
+                        <h3 data-key="aboutMission">Our Mission</h3>
+                        <p data-key="aboutMissionText">To empower creators everywhere by providing high-quality, inspiring, and accessible digital tools. We believe that with the right resources, anyone can bring their creative visions to life.</p>
+                        <h3 data-key="aboutStory">Our Story</h3>
+                        <p data-key="aboutStoryText">Grinita was born from a simple idea: creativity should be joyful and uninhibited. Founded by a group of artists and designers, we noticed a need for unique, fantasy-inspired assets that weren't just functional, but also fun.</p>
+                        <a href="#contact" class="btn" data-key="getInTouch">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section id="contact"> <div class="container"> <div class="section-title"><h2 data-key="contactTitle">Contact Us</h2><p data-key="contactSubtitle">Have a question or a project in mind? We'd love to hear from you.</p></div> 
+        <div class="contact-container"> <div class="contact-info"> <div class="contact-info-item"><i class="fas fa-envelope"></i><div><h3 data-key="contactEmail">Email Us</h3><p>hi@grinita.com</p></div></div> <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><div><h3 data-key="contactStudio">Our Studio</h3><p>123 Creative Lane, Fantasy City</p></div></div> 
+        <div class="contact-info-item"><i class="fas fa-hashtag"></i><div><h3 data-key="contactSocial">Social Media</h3><p>@Grinita</p></div></div> </div>
+         
+        <form class="contact-form" action="https://formspree.io/f/xnngvwea" method="POST">
+         <div class="form-group"><input type="text" name="name" data-key="formName" placeholder="Your Name" required></div>
+             <div class="form-group"><input type="email" name="email" data-key="formEmail" placeholder="Your Email" required></div>
+             <div class="form-group"><textarea name="message" rows="6" data-key="formMessage" placeholder="Your Message" required></textarea></div> <button type="submit" class="btn" data-key="sendMessage">Send Message</button> 
+            </form> 
+            </div>
+    
+    </div> 
+    </section> 
+
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <a href="#" class="footer-logo-link">
+                <img src="images/grinita store stickers and coloring book and t shirt.png" alt="Grinita Logo" class="footer-logo-image">
+                <span class="footer-logo-text">Grinita</span>
+            </a>
+            <div class="social-links">
+                <a href="https://www.instagram.com/grinitastore/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="copyright"><p data-key="footerText">&copy; 2025 Grinita. All Rights Reserved. Empowering Your Creative Journey.</p></div>
+        </div>
+    </footer>
+
+  <script src="products-data.js"></script>
+  
+   <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // =================================================================
+    //  الخطوة 1: تعريف الدوال المساعدة
+    // =================================================================
+    
+    // دالة لإنشاء النجوم
+    function createRatingStars(rating) {
+        let starsHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) starsHTML += '<i class="fas fa-star"></i>';
+            else if (i - 0.5 === rating) starsHTML += '<i class="fas fa-star-half-alt"></i>';
+            else starsHTML += '<i class="far fa-star"></i>';
+        }
+        return starsHTML;
+    }
+
+    // دالة لإنشاء سلايدر الصور
+    function createImageSlider(images) {
+        return images.map((img, index) => `<img src="${img}" class="${index === 0 ? 'active' : ''}" alt="Product image">`).join('');
+    }
+
+    // دالة لتفعيل السلايدر على بطاقات المنتجات
+    function initProductSliders(selector) {
+        document.querySelectorAll(selector).forEach(card => {
+            const slider = card.querySelector('.product-img-slider');
+            if (!slider) return;
+            const images = slider.querySelectorAll('img');
+            if (images.length <= 1) {
+                const prev = card.querySelector('.slider-btn.prev');
+                const next = card.querySelector('.slider-btn.next');
+                if(prev) prev.style.display = 'none';
+                if(next) next.style.display = 'none';
+                return;
+            }
+            
+            const prevBtn = card.querySelector('.slider-btn.prev');
+            const nextBtn = card.querySelector('.slider-btn.next');
+            let currentIndex = 0;
+
+            function showImage(index) {
+                images.forEach((img, i) => img.classList.toggle('active', i === index));
+            }
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                showImage(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                showImage(currentIndex);
+            });
+        });
+    }
+
+    // دالة لتفعيل الشريط المتحرك
+    function initTicker(tickerSelector, animationSpeed = '40s') {
+        const ticker = document.querySelector(tickerSelector);
+        if (!ticker) return;
+        const tickerWrapper = ticker.querySelector('.ticker-wrapper');
+        const originalContainer = tickerWrapper.querySelector('.ticker-container');
+        if (!originalContainer || originalContainer.children.length === 0) return; // لا تعمل إذا كانت فارغة
+
+        const duplicateContainer = originalContainer.cloneNode(true);
+        tickerWrapper.appendChild(duplicateContainer);
+        tickerWrapper.querySelectorAll('.ticker-container').forEach(c => {
+            c.style.animationDuration = animationSpeed;
+        });
+        // ... (بقية كود الشريط المتحرك الخاص بك) ...
+    }
+
+    // =================================================================
+    //  الخطوة 2: تحميل المنتجات المميزة ديناميكيًا
+    // =================================================================
+    const featuredContainer = document.getElementById('featured-products-container');
+    if (featuredContainer && typeof allProducts !== 'undefined') {
+        const featuredProducts = allProducts.slice(0, 4); 
+        const tickerProducts = [...featuredProducts, ...featuredProducts];
+        
+        const allFeaturedHtml = tickerProducts.map(product => {
+            return `
+                <div class="product-card">
+                    <div class="product-img">
+                        <div class="product-img-slider">${createImageSlider(product.images)}</div>
+                        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="product-content">
+                        <h3 data-key-title="${product.id}">${product.title_en}</h3>
+                        <p data-key-desc="${product.id}">${product.desc_en}</p>
+                        <div class="product-meta">
+                            <div class="product-price">${product.price}</div>
+                            <div class="product-rating">${createRatingStars(product.rating)}</div>
+                        </div>
+                        <a href="${product.buyLink}" class="btn" data-key="buyNow">Buy Now</a>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        featuredContainer.innerHTML = allFeaturedHtml;
+      initProductSliders('#featured-products-container .product-card');
+    }
+
+    // =================================================================
+    //  الخطوة 3: تفعيل كل أكواد الجافاسكريبت الأصلية
+    // =================================================================
+
+    // تفعيل السلايدر للمنتجات التي تم تحميلها ديناميكيًا
+    initProductSliders('#featured-products-container .product-card');
+    
+    // تفعيل السلايدر للمنتجات الموجودة في التبويبات
+    initProductSliders('#all-products .product-card');
+
+    // تفعيل الشريط المتحرك (Ticker) بعد أن امتلأ بالمنتجات
+    initTicker('#featured-products', '40s');
+    initTicker('#gallery .ticker', '50s');
+
+    // تفعيل كود الترجمة
+    const translations = { /* ... كل كود الترجمة الخاص بك ... */ };
+    const langToggles = [document.getElementById('langToggle'), document.getElementById('langToggleMobile')];
+    let currentLang = 'en';
+    // ... (بقية كود الترجمة الخاص بك) ...
+    langToggles.forEach(toggle => {
+        if(toggle) toggle.addEventListener('click', function() {
+            document.body.classList.toggle('rtl');
+            if (document.body.classList.contains('rtl')) {
+                currentLang = 'ar';
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                langToggles.forEach(t => { if(t) t.textContent = 'EN'; });
+            } else {
+                currentLang = 'en';
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                langToggles.forEach(t => { if(t) t.textContent = 'AR'; });
+            }
+            // ... (بقية كود الترجمة) ...
+        });
+    });
+
+    // تفعيل قائمة الجوال (Mobile Menu)
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobileNav');
+    if(mobileMenuToggle) mobileMenuToggle.addEventListener('click', () => mobileNav.classList.toggle('active'));
+
+    // تفعيل تأثير الهيدر عند النزول
+    const header = document.getElementById('header');
+    if(header) window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+
+    // تفعيل التبويبات (Tabs)
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === tabId) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+
+    // تفعيل الأسئلة الشائعة (FAQ)
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            faqItems.forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        });
+    });
+
+    // ... (أي كود آخر من ملفك الأصلي مثل Smooth Scrolling) ...
+
+});
+</script>
+</body>
+</html>
+
+
+
+
+
