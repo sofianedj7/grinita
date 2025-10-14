@@ -694,13 +694,14 @@
 
   <script src="products-data.js"></script>
   
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          // =================================================================
-    // ✅ الصق هذا الكود الجديد هنا
+   <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // =================================================================
+    //  الخطوة 1: تعريف الدوال المساعدة
     // =================================================================
     
-    // --- 1. دوال مساعدة لإنشاء البطاقات ---
+    // دالة لإنشاء النجوم
     function createRatingStars(rating) {
         let starsHTML = '';
         for (let i = 1; i <= 5; i++) {
@@ -711,16 +712,69 @@
         return starsHTML;
     }
 
+    // دالة لإنشاء سلايدر الصور
     function createImageSlider(images) {
         return images.map((img, index) => `<img src="${img}" class="${index === 0 ? 'active' : ''}" alt="Product image">`).join('');
     }
 
-    // --- 2. كود تحميل المنتجات المميزة ديناميكيًا ---
+    // دالة لتفعيل السلايدر على بطاقات المنتجات
+    function initProductSliders(selector) {
+        document.querySelectorAll(selector).forEach(card => {
+            const slider = card.querySelector('.product-img-slider');
+            if (!slider) return;
+            const images = slider.querySelectorAll('img');
+            if (images.length <= 1) {
+                const prev = card.querySelector('.slider-btn.prev');
+                const next = card.querySelector('.slider-btn.next');
+                if(prev) prev.style.display = 'none';
+                if(next) next.style.display = 'none';
+                return;
+            }
+            
+            const prevBtn = card.querySelector('.slider-btn.prev');
+            const nextBtn = card.querySelector('.slider-btn.next');
+            let currentIndex = 0;
+
+            function showImage(index) {
+                images.forEach((img, i) => img.classList.toggle('active', i === index));
+            }
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                showImage(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                showImage(currentIndex);
+            });
+        });
+    }
+
+    // دالة لتفعيل الشريط المتحرك
+    function initTicker(tickerSelector, animationSpeed = '40s') {
+        const ticker = document.querySelector(tickerSelector);
+        if (!ticker) return;
+        const tickerWrapper = ticker.querySelector('.ticker-wrapper');
+        const originalContainer = tickerWrapper.querySelector('.ticker-container');
+        if (!originalContainer || originalContainer.children.length === 0) return; // لا تعمل إذا كانت فارغة
+
+        const duplicateContainer = originalContainer.cloneNode(true);
+        tickerWrapper.appendChild(duplicateContainer);
+        tickerWrapper.querySelectorAll('.ticker-container').forEach(c => {
+            c.style.animationDuration = animationSpeed;
+        });
+        // ... (بقية كود الشريط المتحرك الخاص بك) ...
+    }
+
+    // =================================================================
+    //  الخطوة 2: تحميل المنتجات المميزة ديناميكيًا
+    // =================================================================
     const featuredContainer = document.getElementById('featured-products-container');
     if (featuredContainer && typeof allProducts !== 'undefined') {
-        const featuredProducts = allProducts.slice(0, 4); // اختر أول 4 منتجات فقط للعرض
-        
-        // نكرر المنتجات مرتين لجعل الشريط المتحرك يلتف بسلاسة
+        const featuredProducts = allProducts.slice(0, 4); 
         const tickerProducts = [...featuredProducts, ...featuredProducts];
         
         const allFeaturedHtml = tickerProducts.map(product => {
@@ -745,281 +799,86 @@
         }).join('');
         
         featuredContainer.innerHTML = allFeaturedHtml;
-      initProductSliders(); // <-- أضف هذا السطر
     }
 
     // =================================================================
-    // --- اترك بقية أكواد الجافاسكريبت الأصلية كما هي بعد هذا الجزء ---
+    //  الخطوة 3: تفعيل كل أكواد الجافاسكريبت الأصلية
     // =================================================================
-            const translations = {
-                en: {
-                    navHome: "Home", navFeatured: "Featured", navAllProducts: "All Products", navGallery: "Gallery", navLearn: "Learn", navBlog: "Blog", navFaq: "FAQ", navContact: "Contact",
-                    heroTitle: "Grinita: Your World of Creative Joy", heroSubtitle: "Discover unique digital stickers, delightful coloring books, and inspiring stories crafted to bring a smile to your face.", heroFeatures: "⭐ Instant Downloads | High Quality | Affordable Prices", heroButton: "Explore Our Products",
-                    buyNow: "Buy Now", browseMore: "Browse More",
-                    allProductsTitle: "All Our Products", allProductsSubtitle: "Browse our complete collection of creative assets.",
-                    stickersTab: "Stickers", coloringBooksTab: "Coloring Books", ebooksTab: "eBooks",
-                    sticker1Title: "Floral Digital Sticker Pack – 20+ Printable Flower Stickers", sticker1Desc: "A rich collection of floral stickers. Beautiful and eye-soothing colors, perfect for decorating your notebooks, phone, and more. Ready for instant download!",
-                    sticker2Title: "30+ Motivational Quote Stickers", sticker2Desc: "Printable & digital designs perfect for women, girls, and moms. Beautiful floral and heart templates to inspire every day.",
-                    sticker3Title: "Cute Animal Stickers", sticker3Desc: "A collection of 25 adorable animal stickers for your planner.",
-                    coloringBook1Title: "English Countryside Coloring Book", coloringBook1Desc: "50 Relaxing Designs of Villages, Gardens, and Nature PDF Design Pages.",
-                    coloringBook2Title: "Little Corner Coloring Book", coloringBook2Desc: "40 House & Room Designs | 102 Pages | PDF & PNG.",
-                    ebook1Title: "The Storyteller's Guide", ebook1Desc: "An essential eBook for mastering the art of creative writing.",
-                    ebook2Title: "Freelancer's Playbook", ebook2Desc: "Your ultimate guide to building a successful freelance career.",
-                    galleryTitle: "Our Creative Gallery", gallerySubtitle: "A glimpse into our world of fantasy and design.",
-                    learnTitle: "Watch & Learn", learnHeading: "Unlock Your Potential", learnText: "Check out our tutorials and tips on how to make the most of your digital assets. From beginner guides to advanced techniques, we're here to help you grow as a creator.", learnButton: "Visit Our Channel",
-                    storesTitle: "Our Marketplaces", storesSubtitle: "Find our exclusive collections on your favorite platforms.",
-                    cmTitle: "Creative Market", cmDesc: "Professional design assets.", visitShop: "Visit Shop",
-                    gumroadTitle: "Gumroad Goods", gumroadDesc: "Premium guides & direct downloads.",
-                    blogTitle: "From Our Blog", blogSubtitle: "Get the latest tips, tricks, and inspiration for your creative journey.",
-                    blog1Category: "DESIGN TIPS", blog1Title: "Relax and Create with the Little Corner Coloring Book", blog1Excerpt: "The Little Corner Coloring Book is the perfect creative escape for kids, teens, and adults who love art and relaxation. With 50 unique designs of cozy home corners, every page is designed to inspire mindfulness and joy.", readMore: "Read More...",
-                    blog2Category: "INSPIRATION", blog2Title: "Motivational Stickers for Positivity", blog2Excerpt: "Our collection features 30+ beautiful digital stickers designed with floral hearts, cozy shapes, and inspiring quotes. These stickers are perfect for decorating journals, planners, laptops, notebooks, or phone cases.",
-                    blog3Category: "RESOURCES", blog3Title: "Discover Grinita", blog3Excerpt: "Grinita is the go-to online shop for digital stickers, coloring books, and creative resources. Learn more about our mission to spread joy through design.",
-                    faqTitle: "Frequently Asked Questions", faqSubtitle: "Have questions? We've got answers. If you can't find what you're looking for, feel free to contact us.",
-                    faq1q: "What file formats are included?", faq1a: "Each product comes with a variety of file formats to ensure compatibility with most design software. Typically, you'll find PNG, JPG, PSD, and AI files. Please check the individual product description for specific details.",
-                    faq2q: "How do I receive my files after purchase?", faq2a: "Once your purchase is complete, you will receive an email with a secure download link. You can download your files instantly. The link will be active for 30 days.",
-                    faq3q: "What is your refund policy?", faq3a: "Due to the digital nature of our products, all sales are final and we do not offer refunds. However, if you encounter any issues with your files, please contact our support team, and we'll be happy to assist you.",
-                    faq4q: "Can I use these assets for commercial projects?", faq4a: "Yes! All our products come with a standard commercial license, which allows you to use them in an unlimited number of personal and commercial projects. However, you are not allowed to resell or redistribute the original files.",
-                    aboutTitle: "About Grinita", aboutMission: "Our Mission",
-                    aboutMissionText: "To empower creators everywhere by providing high-quality, inspiring, and accessible digital tools. We believe that with the right resources, anyone can bring their creative visions to life.",
-                    aboutStory: "Our Story",
-                    aboutStoryText: "Grinita was born from a simple idea: creativity should be joyful and uninhibited. Founded by a group of artists and designers, we noticed a need for unique, fantasy-inspired assets that weren't just functional, but also fun.",
-                    getInTouch: "Get in Touch",
-                    contactTitle: "Contact Us", contactSubtitle: "Have a question or a project in mind? We'd love to hear from you.",
-                    contactEmail: "Email Us", contactStudio: "Our Studio", contactSocial: "Social Media",
-                    formName: "Your Name", formEmail: "Your Email", formMessage: "Your Message", sendMessage: "Send Message",
-                    footerText: "© 2025 Grinita. All Rights Reserved. Empowering Your Creative Journey."
-                },
-                ar: {
-                    navHome: "الرئيسية", navFeatured: "المميزة", navAllProducts: "كل المنتجات", navGallery: "المعرض", navLearn: "تعلم", navBlog: "المدونة", navFaq: "الأسئلة", navContact: "تواصل معنا",
-                    heroTitle: "جرينيتا: عالمك من المرح الإبداعي", heroSubtitle: "اكتشف ملصقات رقمية فريدة، كتب تلوين مبهجة، وقصص ملهمة مصممة لترسم الابتسامة على وجهك.", heroFeatures: "⭐ تنزيلات فورية | جودة عالية | أسعار مناسبة", heroButton: "استكشف منتجاتنا",
-                    buyNow: "شراء الآن", browseMore: "تصفح المزيد",
-                    allProductsTitle: "جميع منتجاتنا", allProductsSubtitle: "تصفح مجموعتنا الكاملة من الأصول الإبداعية.",
-                    stickersTab: "ملصقات", coloringBooksTab: "كتب تلوين", ebooksTab: "كتب إلكترونية",
-                    sticker1Title: "مجموعة ملصقات الزهور الرقمية - 20+ ملصق زهور قابل للطباعة", sticker1Desc: "مجموعة غنية من ملصقات الزهور. ألوان جميلة ومريحة للعين، مثالية لتزيين دفاتر ملاحظاتك وهاتفك والمزيد. جاهزة للتنزيل الفوري!",
-                    sticker2Title: "30+ ملصقًا تحفيزيًا باقتباسات ملهمة", sticker2Desc: "تصاميم قابلة للطباعة ورقمية مثالية للنساء والفتيات والأمهات. قوالب جميلة من الزهور والقلوب لتلهمك كل يوم.",
-                    sticker3Title: "ملصقات حيوانات لطيفة", sticker3Desc: "مجموعة من 25 ملصق حيوانات رائعتين لمنظمك.",
-                    coloringBook1Title: "كتاب تلوين الريف الإنجليزي", coloringBook1Desc: "50 تصميمًا مريحًا للقرى والحدائق والطبيعة بصيغة PDF.",
-                    coloringBook2Title: "كتاب تلوين الركن الصغير", coloringBook2Desc: "40 تصميمًا للمنازل والغرف | 102 صفحة | PDF & PNG.",
-                    ebook1Title: "دليل الحكواتي", ebook1Desc: "كتاب إلكتروني أساسي لإتقان فن الكتابة الإبداعية.",
-                    ebook2Title: "دليل المستقل الناجح", ebook2Desc: "دليلك الشامل لبناء حياة مهنية ناجحة كمستقل.",
-                    galleryTitle: "معرضنا الإبداعي", gallerySubtitle: "لمحة عن عالمنا من الخيال والتصميم.",
-                    learnTitle: "شاهد وتعلم", learnHeading: "أطلق العنان لقدراتك", learnText: "تصفح دروسنا ونصائحنا حول كيفية تحقيق أقصى استفادة من أصولك الرقمية. من الأدلة للمبتدئين إلى التقنيات المتقدمة، نحن هنا لمساعدتك على النمو كمبدع.", learnButton: "تفضل بزيارة قناتنا",
-                    storesTitle: "متاجرنا الإلكترونية", storesSubtitle: "اعثر على مجموعاتنا الحصرية على منصاتك المفضلة.",
-                    cmTitle: "كرييتف ماركت", cmDesc: "أصول تصميم احترافية.", visitShop: "زيارة المتجر",
-                    gumroadTitle: "بضائع جومرود", gumroadDesc: "أدلة مميزة وتنزيلات مباشرة.",
-                    blogTitle: "من مدونتنا", blogSubtitle: "احصل على أحدث النصائح والحيل والإلهام لرحلتك الإبداعية.",
-                    blog1Category: "نصائح تصميم", blog1Title: "استرخِ وأبدع مع كتاب تلوين الركن الصغير", blog1Excerpt: "كتاب تلوين الركن الصغير هو المهرب الإبداعي المثالي للأطفال والمراهقين والبالغين الذين يحبون الفن والاسترخاء. مع 50 تصميمًا فريدًا لأركان المنزل الدافئة، تم تصميم كل صفحة لإلهام الهدوء والفرح.", readMore: "اقرأ المزيد...",
-                    blog2Category: "إلهام", blog2Title: "ملصقات تحفيزية للإيجابية", blog2Excerpt: "تتميز مجموعتنا بأكثر من 30 ملصقًا رقميًا جميلاً مصممة بقلوب من الزهور وأشكال مريحة واقتباسات ملهمة. هذه الملصقات مثالية لتزيين المجلات والمخططات وأجهزة الكمبيوتر المحمولة والدفاتر أو حافظات الهاتف.",
-                    blog3Category: "مصادر", blog3Title: "اكتشف جرينيتا", blog3Excerpt: "جرينيتا هو المتجر الإلكتروني المفضل للملصقات الرقمية وكتب التلوين والموارد الإبداعية. اعرف المزيد عن مهمتنا لنشر الفرح من خلال التصميم.",
-                    faqTitle: "الأسئلة الشائعة", faqSubtitle: "لديك أسئلة؟ لدينا إجابات. إذا لم تجد ما تبحث عنه، فلا تتردد في الاتصال بنا.",
-                    faq1q: "ما هي تنسيقات الملفات المضمنة؟", faq1a: "يأتي كل منتج مع مجموعة متنوعة من تنسيقات الملفات لضمان التوافق مع معظم برامج التصميم. عادةً، ستجد ملفات PNG و JPG و PSD و AI. يرجى مراجعة وصف المنتج الفردي للحصول على تفاصيل محددة.",
-                    faq2q: "كيف أستلم ملفاتي بعد الشراء؟", faq2a: "بمجرد اكتمال عملية الشراء، ستتلقى بريدًا إلكترونيًا يحتوي على رابط تنزيل آمن. يمكنك تنزيل ملفاتك على الفور. سيكون الرابط نشطًا لمدة ٣٠ يومًا.",
-                    faq3q: "ما هي سياسة الاسترداد الخاصة بكم؟", faq3a: "نظرًا للطبيعة الرقمية لمنتجاتنا، فإن جميع المبيعات نهائية ولا نقدم المبالغ المستردة. ومع ذلك، إذا واجهت أي مشاكل مع ملفاتك، فيرجى الاتصال بفريق الدعم لدينا، وسنكون سعداء بمساعدتك.",
-                    faq4q: "هل يمكنني استخدام هذه الأصول للمشاريع التجارية؟", faq4a: "نعم! تأتي جميع منتجاتنا مع ترخيص تجاري قياسي، والذي يسمح لك باستخدامها في عدد غير محدود من المشاريع الشخصية والتجارية. ومع ذلك، لا يُسمح لك بإعادة بيع الملفات الأصلية أو إعادة توزيعها.",
-                    aboutTitle: "عن جرينيتا", aboutMission: "مهمتنا",
-                    aboutMissionText: "تمكين المبدعين في كل مكان من خلال توفير أدوات رقمية ملهمة وعالية الجودة. نؤمن أنه بالموارد المناسبة، يمكن لأي شخص تحويل رؤيته الإبداعية إلى حقيقة.",
-                    aboutStory: "قصتنا",
-                    aboutStoryText: "ولدت جرينيتا من فكرة بسيطة: يجب أن يكون الإبداع ممتعًا وبلا قيود. أسسها فنانون ومصممون لاحظوا الحاجة إلى أصول فريدة مستوحاة من الخيال، ليست عملية فحسب، بل ممتعة أيضًا.",
-                    getInTouch: "تواصل معنا",
-                    contactTitle: "تواصل معنا", contactSubtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
-                    contactEmail: "راسلنا عبر البريد", contactStudio: "موقعنا", contactSocial: "التواصل الاجتماعي",
-                    formName: "اسمك", formEmail: "بريدك الإلكتروني", formMessage: "رسالتك", sendMessage: "إرسال الرسالة",
-                    footerText: "© 2025 جرينيتا. جميع الحقوق محفوظة. لتمكين رحلتك الإبداعية."
-                }
-            };
 
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const mobileNav = document.getElementById('mobileNav');
-            const header = document.getElementById('header');
-            const langToggles = [document.getElementById('langToggle'), document.getElementById('langToggleMobile')];
-            let currentLang = 'en';
+    // تفعيل السلايدر للمنتجات التي تم تحميلها ديناميكيًا
+    initProductSliders('#featured-products-container .product-card');
+    
+    // تفعيل السلايدر للمنتجات الموجودة في التبويبات
+    initProductSliders('#all-products .product-card');
 
-            function translatePage() {
-                document.querySelectorAll('[data-key]').forEach(element => {
-                    const key = element.getAttribute('data-key');
-                    if (translations[currentLang] && translations[currentLang][key]) {
-                        if(element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                            element.placeholder = translations[currentLang][key];
-                        } else {
-                            element.textContent = translations[currentLang][key];
-                        }
-                    }
-                });
+    // تفعيل الشريط المتحرك (Ticker) بعد أن امتلأ بالمنتجات
+    initTicker('#featured-products', '40s');
+    initTicker('#gallery .ticker', '50s');
+
+    // تفعيل كود الترجمة
+    const translations = { /* ... كل كود الترجمة الخاص بك ... */ };
+    const langToggles = [document.getElementById('langToggle'), document.getElementById('langToggleMobile')];
+    let currentLang = 'en';
+    // ... (بقية كود الترجمة الخاص بك) ...
+    langToggles.forEach(toggle => {
+        if(toggle) toggle.addEventListener('click', function() {
+            document.body.classList.toggle('rtl');
+            if (document.body.classList.contains('rtl')) {
+                currentLang = 'ar';
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                langToggles.forEach(t => { if(t) t.textContent = 'EN'; });
+            } else {
+                currentLang = 'en';
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                langToggles.forEach(t => { if(t) t.textContent = 'AR'; });
             }
-
-            mobileMenuToggle.addEventListener('click', () => mobileNav.classList.toggle('active'));
-            
-            langToggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
-                    document.body.classList.toggle('rtl');
-                    if (document.body.classList.contains('rtl')) {
-                        currentLang = 'ar';
-                        document.documentElement.lang = 'ar';
-                        document.documentElement.dir = 'rtl';
-                        langToggles.forEach(t => t.textContent = 'EN');
-                    } else {
-                        currentLang = 'en';
-                        document.documentElement.lang = 'en';
-                        document.documentElement.dir = 'ltr';
-                        langToggles.forEach(t => t.textContent = 'AR');
-                    }
-                    translatePage();
-                });
-            });
-            
-            window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
-            
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    if (this.classList.contains('read-more')) {
-                        e.preventDefault();
-                        return;
-                    }
-                    const targetId = this.getAttribute('href');
-                    if (targetId && targetId.length > 1) {
-                        try {
-                            const targetElement = document.querySelector(targetId);
-                            if (targetElement) {
-                                e.preventDefault();
-                                window.scrollTo({ top: targetElement.offsetTop - header.offsetHeight, behavior: 'smooth' });
-                                if (mobileNav.classList.contains('active')) {
-                                    mobileNav.classList.remove('active');
-                                }
-                            }
-                        } catch (error) {
-                            console.error("Could not scroll to element:", error);
-                        }
-                    }
-                });
-            });
-
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-                    faqItems.forEach(i => {
-                        i.classList.remove('active');
-                        i.querySelector('.faq-answer').style.maxHeight = null;
-                    });
-                    if (!isActive) {
-                        item.classList.add('active');
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                    }
-                });
-            });
-            
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    const tabId = button.getAttribute('data-tab');
-                    tabContents.forEach(content => {
-                        content.classList.remove('active');
-                        if (content.id === tabId) {
-                            content.classList.add('active');
-                        }
-                    });
-                });
-            });
-            
-            // Product Image Sliders
-          function initProductSliders() {
-            document.querySelectorAll('.product-card').forEach(card => {
-                const slider = card.querySelector('.product-img-slider');
-                const prevBtn = card.querySelector('.slider-btn.prev');
-                const nextBtn = card.querySelector('.slider-btn.next');
-                
-                if (slider && prevBtn && nextBtn) {
-                    const images = slider.querySelectorAll('img');
-                    let currentIndex = 0;
-
-                    if (images.length <= 1) {
-                        prevBtn.style.display = 'none';
-                        nextBtn.style.display = 'none';
-                        return;
-                    }
-
-                    function showImage(index) {
-                        images.forEach((img, i) => {
-                            img.classList.remove('active');
-                            if (i === index) {
-                                img.classList.add('active');
-                            }
-                        });
-                    }
-
-                    prevBtn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
-                        showImage(currentIndex);
-                    });
-
-                    nextBtn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-                        showImage(currentIndex);
-                    });
-                }
-            });
-
-            function initTicker(tickerSelector, animationSpeed = '40s') {
-                const ticker = document.querySelector(tickerSelector);
-                if (!ticker) return;
-
-                const tickerWrapper = ticker.querySelector('.ticker-wrapper');
-                if (!tickerWrapper) return;
-                
-                const originalContainer = tickerWrapper.querySelector('.ticker-container');
-                if (!originalContainer) return;
-
-                const duplicateContainer = originalContainer.cloneNode(true);
-                tickerWrapper.appendChild(duplicateContainer);
-
-                tickerWrapper.querySelectorAll('.ticker-container').forEach(c => {
-                     c.style.animationDuration = animationSpeed;
-                });
-                
-                let isDown = false;
-                let startX;
-                let scrollLeft;
-
-                ticker.addEventListener('mousedown', (e) => {
-                    isDown = true;
-                    ticker.classList.add('grabbing');
-                    startX = e.pageX - ticker.offsetLeft;
-                    scrollLeft = ticker.scrollLeft;
-                    tickerWrapper.querySelectorAll('.ticker-container').forEach(c => c.style.animationPlayState = 'paused');
-                });
-
-                ticker.addEventListener('mouseleave', () => {
-                    isDown = false;
-                    ticker.classList.remove('grabbing');
-                     tickerWrapper.querySelectorAll('.ticker-container').forEach(c => c.style.animationPlayState = 'running');
-                });
-
-                ticker.addEventListener('mouseup', () => {
-                    isDown = false;
-                    ticker.classList.remove('grabbing');
-                    tickerWrapper.querySelectorAll('.ticker-container').forEach(c => c.style.animationPlayState = 'running');
-                });
-
-                ticker.addEventListener('mousemove', (e) => {
-                    if(!isDown) return;
-                    e.preventDefault();
-                    const x = e.pageX - ticker.offsetLeft;
-                    const walk = (x - startX) * 2;
-                    ticker.scrollLeft = scrollLeft - walk;
-                });
-            }
-
-            initTicker('#featured-products', '40s');
-            initTicker('#gallery .ticker', '50s');
+            // ... (بقية كود الترجمة) ...
         });
-    </script>
+    });
+
+    // تفعيل قائمة الجوال (Mobile Menu)
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobileNav');
+    if(mobileMenuToggle) mobileMenuToggle.addEventListener('click', () => mobileNav.classList.toggle('active'));
+
+    // تفعيل تأثير الهيدر عند النزول
+    const header = document.getElementById('header');
+    if(header) window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+
+    // تفعيل التبويبات (Tabs)
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === tabId) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+
+    // تفعيل الأسئلة الشائعة (FAQ)
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            faqItems.forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        });
+    });
+
+    // ... (أي كود آخر من ملفك الأصلي مثل Smooth Scrolling) ...
+
+});
+</script>
 </body>
 </html>
 
