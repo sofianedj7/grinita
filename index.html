@@ -373,85 +373,11 @@
                 <a href="#all-products" class="btn" data-key="heroButton">Explore Our Products</a>
             </div>
         </section>
-
+//* هنا في العادة تحت الكتابة تأتي المنتجات لكني قمت بحذفها لاني قمت بإضافة منتجات منفصلة في ملف*/
         <section id="featured-products" class="ticker">
              <div class="ticker-wrapper">
-                <div class="ticker-container">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <div class="product-img-slider">
-                                <img src="https://placehold.co/400x220/ECEFF1/B0BEC5?text=eBook+1" class="active" alt="eBook 1">
-                            </div>
-                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <div class="product-content">
-                            <h3 data-key="ebook1Title">The Storyteller's Guide</h3>
-                            <p data-key="ebook1Desc">An essential eBook for mastering the art of creative writing.</p>
-                            <div class="product-meta">
-                                <div class="product-price">$19.99</div>
-                                <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                            </div>
-                            <a href="#" class="btn" data-key="buyNow">Buy Now</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-img">
-                            <div class="product-img-slider">
-                                <img src="images/stickers flowers digtal png beauteful flowers stickers.jpg" class="active" alt="Sticker Pack 1">
-                                <img src="images/stickers-Inspirational-Motivational-sentences-MOCKUP.gif" alt="Sticker example 2">
-                            </div>
-                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <div class="product-content">
-                            <h3 data-key="sticker1Title">Floral Digital Sticker Pack</h3>
-                            <p data-key="sticker1Desc">A rich collection of floral stickers, perfect for decorating your notebooks, phone, and more.</p>
-                            <div class="product-meta">
-                                <div class="product-price">$3.99</div>
-                                <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                            <a href="https://grinita.gumroad.com/l/FloralDigitalSticker?wanted=true" class="btn" data-key="buyNow">Buy Now</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-img">
-                            <div class="product-img-slider">
-                                <img src="images/English-countryside-Coloring-Book,-Download-now-50-Relaxing-Designs-–-PDF-Digital-Edition-Image11-01.jpg" class="active" alt="Coloring Book 1">
-                                <img src="https://placehold.co/400x220/E0F2F1/80CBC4?text=Countryside+2" alt="Coloring Book page">
-                            </div>
-                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <div class="product-content">
-                            <h3 data-key="coloringBook1Title">English Countryside Coloring Book</h3>
-                            <p data-key="coloringBook1Desc">50 Relaxing Designs of Villages, Gardens, and Nature PDF Design Pages.</p>
-                            <div class="product-meta">
-                                <div class="product-price">$3.99</div>
-                                <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                            <a href="https://grinita.gumroad.com/l/EnglishCountrysideColoring?wanted=true" class="btn" data-key="buyNow">Buy Now</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-img">
-                            <div class="product-img-slider">
-                                <img src="images/30-Inspirational-motivational-Digital-stickers-4.png" class="active" alt="Sticker Pack 2">
-                            </div>
-                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <div class="product-content">
-                            <h3 data-key="sticker2Title">30+ Motivational Quote Stickers</h3>
-                            <p data-key="sticker2Desc">Printable & digital designs perfect for women, girls, and moms.</p>
-                            <div class="product-meta">
-                                <div class="product-price">$3.99</div>
-                                <div class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                            </div>
-                            <a href="https://grinita.gumroad.com/l/motivationalstickers?wanted=true" class="btn" data-key="buyNow">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
+                <div id="featured-products-container" class="ticker-container">
+              </div>
             </div>
         </section>
 
@@ -766,8 +692,64 @@
         </div>
     </footer>
 
+  <script src="products-data.js"></script>
+  
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+          // =================================================================
+    // ✅ الصق هذا الكود الجديد هنا
+    // =================================================================
+    
+    // --- 1. دوال مساعدة لإنشاء البطاقات ---
+    function createRatingStars(rating) {
+        let starsHTML = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) starsHTML += '<i class="fas fa-star"></i>';
+            else if (i - 0.5 === rating) starsHTML += '<i class="fas fa-star-half-alt"></i>';
+            else starsHTML += '<i class="far fa-star"></i>';
+        }
+        return starsHTML;
+    }
+
+    function createImageSlider(images) {
+        return images.map((img, index) => `<img src="${img}" class="${index === 0 ? 'active' : ''}" alt="Product image">`).join('');
+    }
+
+    // --- 2. كود تحميل المنتجات المميزة ديناميكيًا ---
+    const featuredContainer = document.getElementById('featured-products-container');
+    if (featuredContainer && typeof allProducts !== 'undefined') {
+        const featuredProducts = allProducts.slice(0, 4); // اختر أول 4 منتجات فقط للعرض
+        
+        // نكرر المنتجات مرتين لجعل الشريط المتحرك يلتف بسلاسة
+        const tickerProducts = [...featuredProducts, ...featuredProducts];
+        
+        const allFeaturedHtml = tickerProducts.map(product => {
+            return `
+                <div class="product-card">
+                    <div class="product-img">
+                        <div class="product-img-slider">${createImageSlider(product.images)}</div>
+                        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="product-content">
+                        <h3 data-key-title="${product.id}">${product.title_en}</h3>
+                        <p data-key-desc="${product.id}">${product.desc_en}</p>
+                        <div class="product-meta">
+                            <div class="product-price">${product.price}</div>
+                            <div class="product-rating">${createRatingStars(product.rating)}</div>
+                        </div>
+                        <a href="${product.buyLink}" class="btn" data-key="buyNow">Buy Now</a>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        featuredContainer.innerHTML = allFeaturedHtml;
+    }
+
+    // =================================================================
+    // --- اترك بقية أكواد الجافاسكريبت الأصلية كما هي بعد هذا الجزء ---
+    // =================================================================
             const translations = {
                 en: {
                     navHome: "Home", navFeatured: "Featured", navAllProducts: "All Products", navGallery: "Gallery", navLearn: "Learn", navBlog: "Blog", navFaq: "FAQ", navContact: "Contact",
