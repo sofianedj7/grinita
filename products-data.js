@@ -59,12 +59,12 @@ const allProducts = [
       "images/Little-Corner-Coloring-Book-cover-PDF-50-design-pages-1.jpg"
     ]
   },
-    {
+  {
     id: "coloringBook3",
     category: "coloring-books",
     title_en: "Little Corner Coloring Book – 40 Cozy Home",
     desc_en: "40 House & Room Designs | 102 Pages | PDF & PNG.",
-    title_ar: "كتاب تلوين الركن الصغير",
+    title_ar: "كتاب تلوين الزاوية الصغيرة - 40 منزلًا مريحًا",
     desc_ar: "40 تصميمًا للمنازل والغرف | 102 صفحة.",
     price: "$1.99",
     rating: 4.5,
@@ -89,3 +89,4 @@ const allProducts = [
   }
 
 ];
+
