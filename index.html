@@ -774,7 +774,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // =================================================================
     const featuredContainer = document.getElementById('featured-products-container');
     if (featuredContainer && typeof allProducts !== 'undefined') {
-        const featuredProducts = allProducts.slice(0, 4); 
+        const featuredProducts = allProducts.slice(0, 6); 
         const tickerProducts = [...featuredProducts, ...featuredProducts];
         
         const allFeaturedHtml = tickerProducts.map(product => {
