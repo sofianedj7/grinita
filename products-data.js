@@ -62,15 +62,15 @@ const allProducts = [
   {
     id: "coloringBook3",
     category: "coloring-books",
-    title_en: "Little Corner Coloring Book – 40 Cozy Home",
-    desc_en: "40 House & Room Designs | 102 Pages | PDF & PNG.",
-    title_ar: "كتاب تلوين الزاوية الصغيرة - 40 منزلًا مريحًا",
-    desc_ar: "40 تصميمًا للمنازل والغرف | 102 صفحة.",
+    title_en: "Glow Cosmetics Coloring Book – 40 Design for Girls",
+    desc_en: "40 Glow Cosmetics| 82 Pages | PDF & PNG.",
+    title_ar: "كتاب تلوين أدوات التجميل المتألقة – 40 تصميم للفتيات",
+    desc_ar: "40 أداة تجميل متألقة | 82 صفحة | بصيغة PDF و PNG",
     price: "$1.99",
     rating: 4.5,
-    buyLink: "https://grinita.gumroad.com/l/LittleCornerColoringPages?wanted=true",
+    buyLink: "https://grinita.gumroad.com/l/GlowCosmeticsColoring?wanted=true",
     images: [
-      "images/ittle-corner-coloring-pages-PDF-design-cute-and-comfy-art-40-design-room.jpg"
+      "images/Glow-Cosmetics-Coloring-Book-PDF-Pages-40-2.jpg"
     ]
   },
   {
@@ -89,4 +89,5 @@ const allProducts = [
   }
 
 ];
+
 
