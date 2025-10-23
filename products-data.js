@@ -31,6 +31,20 @@ const allProducts = [
     ]
   },
   {
+    id: "sticker3",
+    category: "stickers",
+    title_en: "+30 Inspirational Quote Stickers PNG",
+    desc_en: "Inspirational Quote Stickers PNG Bundle – 30+ Motivational Printable Stickers for Journals, Laptops & Planners",
+    title_ar: "+30 ملصق اقتباسات ملهمة PNG",
+    desc_ar: "مجموعة ملصقات اقتباسات ملهمة بصيغة PNG - أكثر من 30 ملصقًا تحفيزيًا قابلًا للطباعة للمجلات وأجهزة الكمبيوتر المحمولة والمخططات",
+    price: "$1.99",
+    rating: 4.5,
+    buyLink: "https://grinita.gumroad.com/l/InspirationalQuoteStickers?wanted=true",
+    images: [
+      "images/Inspirational 3 Sticker PNG Bundle photo for grinta site.jpg"
+    ]
+  },
+  {
     id: "coloringBook1",
     category: "coloring-books",
     title_en: "English Countryside Coloring Book",
@@ -89,5 +103,6 @@ const allProducts = [
   }
 
 ];
+
 
 
